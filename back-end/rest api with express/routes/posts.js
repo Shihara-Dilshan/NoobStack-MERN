@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//GET SPECIFIC CODE
+//GET SPECIFIC POST
 router.get("/spefic/:postId", async (req, res) => {
   try {
     const speficPosts = await Post.findById(req.params.postId);

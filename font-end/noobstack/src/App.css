@@ -1,3 +1,31 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.show {
+   display: block;
+}
+
+.hide {
+   display: none !important;
+}
+
+.routes {
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #000000 !important ;
+    text-decoration: none !important;
+}
+
+a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+}
+
 .test {
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 1s; /* Firefox < 16 */

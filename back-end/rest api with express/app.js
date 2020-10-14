@@ -13,8 +13,10 @@ app.use(cors());
 
 //IMPORT ROUTES
 const postRoute = require('./routes/posts');
+const userRoute = require('./routes/users');
 
 app.use('/posts', postRoute);
+app.use('/users', userRoute);
 
 //ROUTES
 app.get("/", (req, res) => {
@@ -31,4 +33,4 @@ mongoose.connect(
 );
 
 //LISTEN TO THE SERVER
-app.listen(3000);
+app.listen(5000);

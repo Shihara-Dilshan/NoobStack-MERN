@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Carousel } from "react-bootstrap";
 
 class Home extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
   render = () => {
     return (
-      <Carousel style={{ height: "30px !important" }}>
+      <Carousel className="test">
         <Carousel.Item>
           <img
             className="d-block w-100"
