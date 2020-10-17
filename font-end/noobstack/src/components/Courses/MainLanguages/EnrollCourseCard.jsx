@@ -1,49 +1,45 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import auth from './../../../auth'
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
 import "./../../../App.css";
 
-class CourseCard extends Component {
+class EnrollCourseCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       
+        email: "",
+        password: ""
     };
   }
   
   componentDidMount(){
-      
+      window.scrollTo(0,0);
   }
-
   
-
   render = () => {
-  const newTo = { 
-  pathname: `/enroll/${this.props.courseTitle.split(" ")[0]}`, 
-  title: this.props.courseTitle,
-  discription: this.props.courseDiscription,
-  imageUrl: this.props.courseImage
-  
-  };
     return (
      <Card>
-    <Card.Img variant="top" src={this.props.courseImage}/>
+
     <Card.Body>
       <Card.Title>{this.props.courseTitle}</Card.Title>
       <Card.Text>
         {this.props.courseDiscription}
       </Card.Text>
-       <Link to={newTo}><Button variant="success">View Course</Button></Link>
+      <Card.Text>
+        Price : FREE
+      </Card.Text>
+      <Button variant="success" onClick={this.props.enroll}>Enroll for this course</Button>
     </Card.Body>
     <Card.Footer>
-      <small className="text-muted">Last updated 3 mins ago</small>
+          <Card.Img variant="top" src={this.props.courseImage} />
     </Card.Footer>
   </Card>
     );
   };
 }
 
-export default CourseCard;
+export default EnrollCourseCard;

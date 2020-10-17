@@ -54,7 +54,6 @@ class Signup extends Component {
         lname: this.state.lname,
         email: this.state.email,
         password: this.state.password,
-        imageUrl: "image url",
       })
       .then((res) => {
         setTimeout(() => {

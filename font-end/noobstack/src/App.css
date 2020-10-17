@@ -52,6 +52,17 @@ a {
    text-decoration: none !important;
 }
 
+.userProfile a{
+   color: #000000 !important;
+   text-decoration: none !important;
+   background-color: transparent !important;
+}
+
+.userProfile a:hover{
+   color: grey !important ;
+   text-decoration: none !important;
+}
+
 
 
 .test {

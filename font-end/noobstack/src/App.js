@@ -10,18 +10,25 @@ import Home from "./components/Home/Home";
 import Login from "./components/User/Login/Login";
 import Signup from "./components/User/SignUp/Signup";
 import LanguagesDashboard from "./components/Courses/MainLanguages/LanguagesDashboard";
+import EnrollCourse from "./components/Courses/MainLanguages/EnrollCourse";
+import EnrollCourseCard from "./components/Courses/MainLanguages/EnrollCourseCard";
+import Profile from "./components/User/Profile/Profile";
 
 class App extends React.Component{
   render(){
      return (
     <Router>
       <div className="App test">
-        <Nevbar />
+        <Route path="/" component={Nevbar} />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/courses" exact component={LanguagesDashboard} />
+          <Route path="/enroll" exact component={EnrollCourse} />
+          <Route path="/enroll/:courseId" component={EnrollCourse} / >
+          <Route path="/enrollcard" component={EnrollCourseCard} / >
+          <Route path="/profile" component={Profile} / >
         </Switch>
       </div>
     </Router>

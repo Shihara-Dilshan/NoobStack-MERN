@@ -26,7 +26,7 @@ const UserSchema = mongoose.Schema({
     imageUrl: {
     	type: String,
         required: true,
-        default: "https://cdn3.vectorstock.com/i/1000x1000/50/07/http-404-not-found-error-message-hypertext-vector-20025007.jpg",
+        default: "https://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg",
         max: 1024,
         min: 8
     }

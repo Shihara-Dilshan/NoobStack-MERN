@@ -8,6 +8,12 @@ class Auth{
     checkAuthentication = () => {
         jwt.verify( localStorage.getItem("auth-token"), "dopfjoidhfifndknfkdkfkdkls239878fdfngfg");
     }
+    
+    
+    getCheckAuthentication = () => {
+        return (jwt.verify( localStorage.getItem("auth-token"), "dopfjoidhfifndknfkdkfkdkls239878fdfngfg"));
+    }
+    
 
 
 }

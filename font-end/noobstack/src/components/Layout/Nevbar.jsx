@@ -18,7 +18,6 @@ class Nevbar extends Component {
   }
   
   componentDidMount(){
-    
     setInterval( () => {
     try{
        auth.checkAuthentication();
@@ -32,6 +31,7 @@ class Nevbar extends Component {
   
   signOut = () => {
      localStorage.removeItem("auth-token");
+     this.props.history.push("/");
   }
 
   render = () => {
@@ -52,11 +52,11 @@ class Nevbar extends Component {
             </Nav.Link>
             <Nav.Link href="#home">SLIIT</Nav.Link>
             <NavDropdown title="Account" id="basic-nav-dropdown" className="dropDown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item><Link to="/profile">Your profile</Link></NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Another action
+                Enrolled courses
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Settings</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={this.signOut}>
                 Sign out
