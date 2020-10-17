@@ -9,6 +9,7 @@ import Nevbar from "./components/Layout/Nevbar";
 import Home from "./components/Home/Home";
 import Login from "./components/User/Login/Login";
 import Signup from "./components/User/SignUp/Signup";
+import LanguagesDashboard from "./components/Courses/MainLanguages/LanguagesDashboard";
 
 class App extends React.Component{
   render(){
@@ -20,6 +21,7 @@ class App extends React.Component{
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" exact component={Signup} />
+          <Route path="/courses" exact component={LanguagesDashboard} />
         </Switch>
       </div>
     </Router>

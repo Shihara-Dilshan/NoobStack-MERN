@@ -30,6 +30,30 @@ a {
     background-color: transparent !important;
 }
 
+.dropDown  a {
+    color: #000000 !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+}
+
+.dropDown  a:hover {
+    color: grey !important ;
+    text-decoration: none !important;
+}
+
+#basic-nav-dropdown {
+   color: #ffffff !important;
+   text-decoration: none !important;
+   background-color: transparent !important;
+}
+
+#basic-nav-dropdown:hover {
+   color: #000000 !important ;
+   text-decoration: none !important;
+}
+
+
+
 .test {
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 1s; /* Firefox < 16 */

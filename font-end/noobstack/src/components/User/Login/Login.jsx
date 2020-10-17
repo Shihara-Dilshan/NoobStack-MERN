@@ -33,9 +33,9 @@ class Login extends Component {
         password: this.state.password,
       })
       .then((res) => {
-        console.log(res.status)
         if(res.status === 200){
-           this.history.push("/");
+           localStorage.setItem("auth-token", res.data);
+           this.props.history.push("/");
         }else{
            
         }
@@ -81,7 +81,7 @@ class Login extends Component {
         </Form.Group>
    
         <div
-                    class="alert alert-danger test hide"
+                    className="alert alert-danger test hide"
                     role="alert"
                     id="accountError"
                   >

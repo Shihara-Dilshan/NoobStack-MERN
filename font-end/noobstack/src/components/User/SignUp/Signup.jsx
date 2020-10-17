@@ -215,21 +215,21 @@ class Signup extends Component {
                     We'll never share your email with anyone else.
                   </Form.Text>
                   <div
-                    class="alert alert-danger test hide"
+                    className="alert alert-danger test hide"
                     role="alert"
                     id="emailExists"
                   >
                     An account is already exists with this email.
                   </div>
                   <div
-                    class="alert alert-danger test hide"
+                    className="alert alert-danger test hide"
                     role="alert"
                     id="emailEmpty"
                   >
                     Email cannot be empty
                   </div>
                   <div
-                    class="alert alert-danger test hide"
+                    className="alert alert-danger test hide"
                     role="alert"
                     id="emailError"
                   >
@@ -249,14 +249,14 @@ class Signup extends Component {
                         }}
                       />
                       <div
-                        class="alert alert-danger test hide"
+                        className="alert alert-danger test hide"
                         role="alert"
                         id="firstnameEmpty"
                       >
                         This field cannot be empty.
                       </div>
                       <div
-                        class="alert alert-danger test hide"
+                        className="alert alert-danger test hide"
                         role="alert"
                         id="firstnameError"
                       >
@@ -275,14 +275,14 @@ class Signup extends Component {
                         }}
                       />
                       <div
-                        class="alert alert-danger test hide"
+                        className="alert alert-danger test hide"
                         role="alert"
                         id="lastnameEmpty"
                       >
                         This field cannot be empty.
                       </div>
                       <div
-                        class="alert alert-danger test hide"
+                        className="alert alert-danger test hide"
                         role="alert"
                         id="lastnameError"
                       >
@@ -304,14 +304,14 @@ class Signup extends Component {
                         }}
                       />
                       <div
-                        class="alert alert-danger test hide"
+                        className="alert alert-danger test hide"
                         role="alert"
                         id="passwordEmpty"
                       >
                         Enter a password.
                       </div>
                       <div
-                        class="alert alert-danger test hide"
+                        className="alert alert-danger test hide"
                         role="alert"
                         id="passwordError"
                       >
@@ -331,14 +331,14 @@ class Signup extends Component {
                         }}
                       />
                       <div
-                        class="alert alert-danger test hide"
+                        className="alert alert-danger test hide"
                         role="alert"
                         id="cpasswordEmpty"
                       >
                         Confirm the password.
                       </div>
                       <div
-                        class="alert alert-danger test hide"
+                        className="alert alert-danger test hide"
                         role="alert"
                         id="cpasswordError"
                       >
@@ -355,7 +355,7 @@ class Signup extends Component {
                   now={100}
                 />
                 <div
-                  class="alert alert-success hide test"
+                  className="alert alert-success hide test"
                   role="alert"
                   id="successMsg"
                 >

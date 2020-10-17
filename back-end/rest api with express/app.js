@@ -14,9 +14,11 @@ app.use(cors());
 //IMPORT ROUTES
 const postRoute = require('./routes/posts');
 const userRoute = require('./routes/users');
+const CourseRoute = require('./routes/courses');
 
 app.use('/posts', postRoute);
 app.use('/users', userRoute);
+app.use('/courses', CourseRoute);
 
 //ROUTES
 app.get("/", (req, res) => {

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
+const verify = require("./verifyToken");
 
 //POST A POST
 router.post("/", async (req, res) => {
@@ -28,7 +29,7 @@ router.get("/spefic/:postId", async (req, res) => {
 });
 
 //GET ALL POSTS
-router.get("/all", async (req, res) => {
+router.get("/all", verify ,async (req, res) => {
   try {
     const allPosts = await Post.find();
     res.json(allPosts);
