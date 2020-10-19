@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
-import auth from './../../../auth'
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import { ProgressBar } from "react-bootstrap";
 
 import "./../../../App.css";
 
@@ -32,7 +31,24 @@ class EnrollCourseCard extends Component {
       <Card.Text>
         Price : FREE
       </Card.Text>
-      <Button variant="success" onClick={this.props.enroll}>Enroll for this course</Button>
+      <Button id="enrollStatus" className="hide test" variant="success" onClick={this.props.enroll}>Enroll for this course</Button>{ " " }
+      <Button id="enrollView" className="hide test" variant="success" >View course</Button>
+       <br />
+      <br />
+      <div
+                        className="alert alert-success hide test"
+                        role="alert"
+                        id="enrolledMsg"
+                      >
+                        Successfully enrolled for the course.
+                      </div>
+      <ProgressBar
+                  id="loadingEnroll"
+                  className="hide test"
+                  variant="success"
+                  animated
+                  now={100}
+                />
     </Card.Body>
     <Card.Footer>
           <Card.Img variant="top" src={this.props.courseImage} />

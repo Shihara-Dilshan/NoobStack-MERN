@@ -46,7 +46,6 @@ class Signup extends Component {
     axios
       .get(`http://localhost:5000/users/speficbyemail/${this.state.email}`)
       .then( res => { 
-               console.log(res.data.length);
                if(res.data.length === 0){
                    axios
       .post("http://localhost:5000/users/register", {

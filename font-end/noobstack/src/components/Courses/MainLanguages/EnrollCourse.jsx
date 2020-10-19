@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { CardDeck } from "react-bootstrap";
 import { Jumbotron } from "react-bootstrap";
-import { Row } from "react-bootstrap";
 import { Container } from "react-bootstrap";
-import { Col } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import { Spinner } from "react-bootstrap";
 
-import auth from './../../../auth'
-
+import auth from './../../../auth';
 import axios from "axios";
+
+
 
 import "./../../../App.css";
 
@@ -22,10 +19,68 @@ class EnrollCourse extends Component {
        
     };
   }
+  
+  async componentDidMount(){
+   try{
+       auth.checkAuthentication();
+       let userId = auth.getCheckAuthentication()._id;
+       
+       axios
+          .post(`http://localhost:5000/users/enrolled/${userId}`,{
+               course: { title: this.props.location.title , description:  this.props.location.discription}
+          })
+          .then( res => {
+              
+              if(res.data.length === 1){
+                  let viewBtn = document.getElementById("enrollView");
+                  viewBtn.classList.remove("hide");
+              }else{
+                  let enrollButton = document.getElementById("enrollStatus");
+                  enrollButton.classList.remove("hide");
+              }
+          })
+          .catch( err => {
+              console.log(err);
+              let enrollButton = document.getElementById("enrollStatus");
+              enrollButton.classList.remove("hide");    
+              
+          })
+   }catch(err){ 
+       console.error(err);
+       let enrollButton = document.getElementById("enrollStatus");
+       enrollButton.classList.remove("hide");
+   }
+  
+      
+          
+  }
  
   enroll = () => {
+    
+    let loading = document.getElementById("loadingEnroll");
+    let success = document.getElementById("enrolledMsg");
+    loading.classList.remove("hide");
     try{
        auth.checkAuthentication();
+       let userId = auth.getCheckAuthentication()._id;
+       
+       axios
+         .patch(`http://localhost:5000/users/${userId}`, {
+              course: {title: this.props.location.title , description: this.props.location.discription}
+         })
+         .then( (res) => {
+             loading.classList.add("hide");
+             success.classList.remove("hide");
+             success.classList.add("show");
+             
+             let viewBtn = document.getElementById("enrollView");
+             viewBtn.classList.remove("hide");
+             
+             let enrollButton = document.getElementById("enrollStatus");
+             enrollButton.classList.add("hide");   
+          })
+         .catch(err => {console.log(err)});
+         
        
     }catch(err){ 
        this.props.history.push("/login");

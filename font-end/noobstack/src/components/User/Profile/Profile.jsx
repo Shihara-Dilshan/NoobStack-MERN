@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { CardDeck } from "react-bootstrap";
 import { Jumbotron } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Container } from "react-bootstrap";
@@ -9,17 +8,16 @@ import { Card } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
 import { Tabs } from "react-bootstrap";
 import { Tab } from "react-bootstrap";
-import { Modal } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
+
 
 import auth from './../../../auth'
-
+import Loading from "./../../Loading"
 
 import axios from "axios";
 
 import "./../../../App.css";
 
-import CourseCard from './CourseCard';
 
 class Profile extends Component {
   constructor(props) {
@@ -27,12 +25,13 @@ class Profile extends Component {
     this.state = {
         isLoading: true,
         userData: [],
+        courseData: [],
         currentScreenHeight: undefined,
     };
   }
   
   componentDidMount(){
-  
+      window.scrollTo(0,0);
       this.setState({currentScreenHeight: window.screen.height});
     try{
        auth.checkAuthentication();
@@ -41,7 +40,7 @@ class Profile extends Component {
        axios
          .get(`http://localhost:5000/users/spefic/${userId}`)
          .then(res => {
-              this.setState({userData: res.data, isLoading: false});
+              this.setState({userData: res.data, isLoading: false, courseData: res.data.courses});
          })
          .catch(err => console.log(err));
        
@@ -49,16 +48,42 @@ class Profile extends Component {
        this.props.history.push("/login");
     }
       
+  }
   
-      
+  remove = (e) => {
+       const removeId = e.target.id;
+       try{
+       auth.checkAuthentication();
+       const userId = auth.getCheckAuthentication()._id;
+       
+        axios
+         .patch(`http://localhost:5000/users/remove/${userId}`, {
+              id : removeId
+         })
+         .then( (res) => {
+           console.log(res);
+          })
+         .catch(err => {console.log(err)});
+       
+    }catch(err){ 
+       this.props.history.push("/login");
+    }
+       
+         
+       const remainCourses = this.state.courseData.filter(course => course._id !== removeId);
+       this.setState({courseData: remainCourses});
   }
 
   render = () => {
     return (
       <Jumbotron className="test userProfile">
-       <Container style={{marginTop: "20px", height:this.state.currentScreenHeight}}>
-       <Row>
-    <Col sm={4}><Card style={{background:"#f2f2f2"}}>
+      
+      {this.state.isLoading ? <Button variant="dark" disabled style={{width:"100%", height:"700px"}}>
+    <Loading />
+    Loading...
+  </Button> :   <Container style={{marginTop: "20px", height:this.state.currentScreenHeight}}>
+       <Row >
+    <Col sm={4} ><Card style={{background:"#f2f2f2"}}>
     <Card.Img className="container" style={{paddingTop:"30px",paddingLeft:"30px",paddingRight:"30px", borderRadius:"50%"}} variant="top" src={this.state.userData.imageUrl}/>
     <Card.Body>
       <Card.Text>
@@ -79,38 +104,17 @@ class Profile extends Component {
      	<Tabs defaultActiveKey="overview" id="uncontrolled-tab-example" style={{background:"#f2f2f2"}} >
   <Tab eventKey="overview" title="Overview">
     <Jumbotron style={{backgroundColor: "#f2f2f2", padding: "5px", overflow: "auto", height:this.state.currentScreenHeight}}>
+    {this.state.courseData.map( course  => (
+       <Card size="lg" block style={{marginBottom: "5px"}}>
+    <Card.Header><b>{course.title}</b>  <Button id={course._id} variant="outline-danger" size="sm" style={{float:"right"}} onClick={this.remove}>Remove</Button></Card.Header>
+    <Card.Body>
+      <Card.Text style={{fontSize: "15px"}}>
+        {course.discription}
+      </Card.Text>
+    </Card.Body>
+  </Card>
     
-   
-  <Card border="dark" size="lg" block style={{marginBottom: "5px"}}>
-    <Card.Header>Header</Card.Header>
-    <Card.Body>
-      <Card.Text>
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card border="dark" size="lg" block style={{marginBottom: "5px"}}>
-    <Card.Header>Header</Card.Header>
-    <Card.Body>
-      <Card.Text>
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card border="dark" size="lg" block style={{marginBottom: "5px"}}>
-    <Card.Header>Header</Card.Header>
-    <Card.Body>
-      <Card.Text>
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  
-  
- 
+    ))}
     
 </Jumbotron>
   </Tab>
@@ -143,6 +147,9 @@ class Profile extends Component {
      </Col>
   </Row>
   </Container>
+      
+      }
+       
 </Jumbotron>
     );
   };
