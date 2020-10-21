@@ -9,6 +9,7 @@ import { Spinner } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Tabs } from "react-bootstrap";
 import { Tab } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 
 import axios from "axios";
 
@@ -37,17 +38,29 @@ class FeedDashboard extends Component {
   render = () => {
     return (
       <Jumbotron className="test feed">
-          <h3
+   
+  <Row>
+    <Col> <h3
             className="text-center"
-            style={{ marginTop: "20px", marginBottom: "20px" }}
+            style={{ marginTop: "30px", marginBottom: "20px",float: "left" }}
           >
-            Question Feed
-          </h3>
+            Top Questions
+          </h3></Col>
+    <Col> <Button
+                              variant="danger"
+                              size="sm"
+                              style={{ marginTop: "30px", marginBottom: "20px",float: "right" }}
+                            >
+                             Ask Question
+                            </Button></Col>
+  </Row>
+
+         
 		  <Tabs
                   defaultActiveKey="overview"
                   style={{ background: "#f2f2f2" }}
                 >
-                  <Tab eventKey="overview" title="Overview">
+                  <Tab eventKey="overview" title="Overview" >
                     <Jumbotron
                       style={{
                         backgroundColor: "#f2f2f2",
@@ -57,28 +70,36 @@ class FeedDashboard extends Component {
                       }}
                     >
                       {this.state.courseData.map((course) => (
-                        <Card size="lg" block style={{ marginBottom: "15px" }}>
+                        <Card size="lg" block style={{ marginBottom: "0px" }}>
                           <Card.Header>
-                            <b>{course.title}</b>{" "}
-                            <Button
-                              id={course._id}
-                              variant="outline-success"
-                              size="sm"
-                              style={{ float: "right" }}
-                              onClick={this.remove}
-                            >
-                              View
-                            </Button>
+                            <b className="text-info">{course.title}</b>{" "}
                             <Card.Text style={{ fontSize: "15px" }}>
                               {course.discription}
                             </Card.Text>
                             <small className="text-muted">
-                      asked by shihara dilshan
+                      asked by shihara dilshan at 2020.20.12 22.00AM
                     </small>
                     <br />
                     <small className="text-muted">
-                      14 answers
+                      <Button
+                              id={course._id}
+                              variant="outline-success"
+                              size="sm"
+                              onClick={this.remove}
+                            >
+                             13 views
+                            </Button>
+                            { " " }
+                        <Button
+                              id={course._id}
+                              variant="success"
+                              size="sm"
+                              onClick={this.remove}
+                            >
+                             3 answers
+                            </Button>
                     </small>
+                    
                           </Card.Header>
                           
                           
