@@ -63,6 +63,17 @@ a {
    text-decoration: none !important;
 }
 
+.feed a{
+   color: #000000 !important;
+   text-decoration: none !important;
+   background-color: transparent !important;
+}
+
+.feed a:hover{
+   color: grey !important ;
+   text-decoration: none !important;
+}
+
 
 
 .test {

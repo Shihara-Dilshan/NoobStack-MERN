@@ -4,8 +4,7 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-
-
+const verify = require("./verifyToken");
 
 //Add new user
 router.post("/register", async (req, res) => {
@@ -84,9 +83,22 @@ router.post("/enrolled/:userEmail", async (req, res) => {
   }
 });
 
+//UPDATE SPEFIC USER
+router.patch("/update/:userId", async (req, res) => {
+  try {
+    const updatedUser = await User.updateOne(
+      { _id: req.params.userId },
+      { $set: { fname: req.body.fname, lname: req.body.lname, imageUrl: req.body.imageUrl } }
+    );
+    res.json(updatedUser);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 
 //UPDATE SPEFIC USER(add new course)
-router.patch("/:userId", async (req, res) => {
+router.patch("/:userId", verify, async (req, res) => {
 
   const checkExist = await User.find({ "courses.title" : req.body.course.title });
   if(checkExist.length !== 0) return res.status(400).send("already enrolled for the course");
@@ -103,7 +115,7 @@ router.patch("/:userId", async (req, res) => {
 });
 
 //UPDATE SPEFIC USER(remove new course)
-router.patch("/remove/:userId", async (req, res) => {
+router.patch("/remove/:userId", verify, async (req, res) => {
 
   const checkExist = await User.find({ "courses._id" : req.body.id });
   if(checkExist.length === 0) return res.status(400).send("You havent enrolled for this course");

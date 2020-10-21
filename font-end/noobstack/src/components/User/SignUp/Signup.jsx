@@ -31,9 +31,9 @@ class Signup extends Component {
 
   signUp = async (e) => {
     e.preventDefault();
-    
+
     const emistsEmail = document.getElementById("emailExists");
-    
+
     if (!this.validate()) {
       return;
     }
@@ -41,45 +41,41 @@ class Signup extends Component {
     const successMsg = document.getElementById("successMsg");
     preLoader.classList.remove("hide");
     preLoader.classList.add("show");
-    
-    
+
     axios
       .get(`http://localhost:5000/users/speficbyemail/${this.state.email}`)
-      .then( res => { 
-               if(res.data.length === 0){
-                   axios
-      .post("http://localhost:5000/users/register", {
-        fname: this.state.fname,
-        lname: this.state.lname,
-        email: this.state.email,
-        password: this.state.password,
-      })
       .then((res) => {
-        setTimeout(() => {
+        if (res.data.length === 0) {
+          axios
+            .post("http://localhost:5000/users/register", {
+              fname: this.state.fname,
+              lname: this.state.lname,
+              email: this.state.email,
+              password: this.state.password,
+            })
+            .then((res) => {
+              setTimeout(() => {
+                preLoader.classList.remove("show");
+                preLoader.classList.add("hide");
+                successMsg.classList.remove("hide");
+                successMsg.classList.add("show");
+                setTimeout(() => {
+                  this.props.history.push("/");
+                }, 2000);
+              }, 1000);
+            })
+            .catch((err) => console.error(err));
+        } else {
           preLoader.classList.remove("show");
           preLoader.classList.add("hide");
-          successMsg.classList.remove("hide");
-          successMsg.classList.add("show");
-          setTimeout(() => {
-            this.props.history.push("/");
-          }, 2000);
-        }, 1000);
+          emistsEmail.classList.remove("hide");
+        }
       })
       .catch((err) => console.error(err));
-               }else{
-                    preLoader.classList.remove("show");
-    		    preLoader.classList.add("hide");
-                   emistsEmail.classList.remove("hide");      	
-               }
-      	               
-      })
-      .catch((err) => console.error(err))
-      
-      setTimeout(() => {
+
+    setTimeout(() => {
       emistsEmail.classList.add("hide");
     }, 4000);
-
-    
   };
 
   validate = () => {
@@ -363,7 +359,9 @@ class Signup extends Component {
                   <Button variant="success" type="submit" onClick={this.signUp}>
                     Sign Up
                   </Button>
-                  <br /><br /><br />
+                  <br />
+                  <br />
+                  <br />
                   <p>or else sign up with</p>
                   <button type="button" className="btn btn-primary">
                     <a href="www.facebook.com/" className="fa fa-facebook">

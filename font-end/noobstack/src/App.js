@@ -13,6 +13,7 @@ import LanguagesDashboard from "./components/Courses/MainLanguages/LanguagesDash
 import EnrollCourse from "./components/Courses/MainLanguages/EnrollCourse";
 import EnrollCourseCard from "./components/Courses/MainLanguages/EnrollCourseCard";
 import Profile from "./components/User/Profile/Profile";
+import FeedDashboard from "./components/Feed/Posts/FeedDashboard";
 
 class App extends React.Component{
   render(){
@@ -29,6 +30,7 @@ class App extends React.Component{
           <Route path="/enroll/:courseId" component={EnrollCourse} / >
           <Route path="/enrollcard" component={EnrollCourseCard} / >
           <Route path="/profile" component={Profile} / >
+          <Route path="/feed" component={FeedDashboard} / >
         </Switch>
       </div>
     </Router>
