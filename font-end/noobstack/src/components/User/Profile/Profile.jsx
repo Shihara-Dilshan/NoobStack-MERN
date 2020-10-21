@@ -113,7 +113,7 @@ class Profile extends Component {
               <Col sm={4}>
                 <Card style={{ background: "#f2f2f2" }}>
                   <Card.Img
-                    className="container"
+                    className="container profileImageRounded"
                     style={{
                       paddingTop: "30px",
                       paddingLeft: "30px",
@@ -124,18 +124,18 @@ class Profile extends Component {
                     src={this.state.userData.imageUrl}
                   />
                   <Card.Body>
-                    <Card.Text className="profileDetails">
+                    <Card.Text className="profileDetails" id="userNameBanner">
                       <h3>
                         {this.state.userData.fname} {this.state.userData.lname}
                       </h3>
                     </Card.Text>
-                    <Card.Text className="profileDetails">
+                    <Card.Text className="profileDetails" id="userNameBanner2">
                       {this.state.userData.fname} {this.state.userData.lname}
                     </Card.Text >
                     <Button variant="outline-dark" size="sm" block onClick={this.editProfile} className="profileDetails">
                       Edit profile
                     </Button>
-                    <UpdateProfile />
+                    <UpdateProfile fname={this.state.userData.fname} lname={this.state.userData.lname} imageurl={this.state.userData.imageUrl}/>
                   </Card.Body>
                   <Card.Footer>
                     <small className="text-muted">

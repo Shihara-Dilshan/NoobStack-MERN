@@ -101,34 +101,34 @@ class Signup extends Component {
     const cpasswordEmpty = document.getElementById("cpasswordEmpty");
     const cpasswordError = document.getElementById("cpasswordError");
 
-    if (this.state.email.length === 0) {
+    if (this.state.email.trim().length === 0) {
       emailEmpty.classList.remove("hide");
       isvalid = false;
     }
 
-    if (this.state.fname.length === 0) {
+    if (this.state.fname.trim().length === 0) {
       fnameEmpty.classList.remove("hide");
       isvalid = false;
     }
 
-    if (this.state.lname.length === 0) {
+    if (this.state.lname.trim().length === 0) {
       lnameEmpty.classList.remove("hide");
       isvalid = false;
     }
 
-    if (this.state.password.length === 0) {
+    if (this.state.password.trim().length === 0) {
       passwordEmpty.classList.remove("hide");
       isvalid = false;
     }
 
-    if (this.state.cpassword.length === 0) {
+    if (this.state.cpassword.trim().length === 0) {
       cpasswordEmpty.classList.remove("hide");
       isvalid = false;
     }
 
     if (
       !emailValidationRegex.test(String(this.state.email).toLowerCase()) &&
-      this.state.email.length !== 0
+      this.state.email.trim().length !== 0
     ) {
       emailError.classList.remove("hide");
       isvalid = false;
@@ -136,7 +136,7 @@ class Signup extends Component {
 
     if (
       !regName.test(String(this.state.fname).toLowerCase()) &&
-      this.state.fname.length !== 0
+      this.state.fname.trim().length !== 0
     ) {
       fnameError.classList.remove("hide");
       isvalid = false;
@@ -144,20 +144,20 @@ class Signup extends Component {
 
     if (
       !regName.test(String(this.state.lname).toLowerCase()) &&
-      this.state.lname.length !== 0
+      this.state.lname.trim().length !== 0
     ) {
       lnameError.classList.remove("hide");
       isvalid = false;
     }
 
-    if (this.state.password.length < 8 && this.state.password.length !== 0) {
+    if (this.state.password.trim().length < 8 && this.state.password.trim().length !== 0) {
       passwordError.classList.remove("hide");
       isvalid = false;
     }
 
     if (
-      this.state.password !== this.state.cpassword &&
-      this.state.cpassword.length !== 0
+      this.state.password.trim() !== this.state.cpassword.trim() &&
+      this.state.cpassword.trim().length !== 0
     ) {
       cpasswordError.classList.remove("hide");
       isvalid = false;
