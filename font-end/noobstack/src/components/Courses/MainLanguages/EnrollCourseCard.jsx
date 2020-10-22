@@ -4,6 +4,8 @@ import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { ProgressBar } from "react-bootstrap";
 
+import { Link } from "react-router-dom";
+
 import "./../../../App.css";
 
 class EnrollCourseCard extends Component {
@@ -34,9 +36,10 @@ class EnrollCourseCard extends Component {
           >
             Enroll for this course
           </Button>{" "}
-          <Button id="enrollView" className="hide test" variant="success">
+          <Link to="/view"><Button id="enrollView" className="hide test" variant="success">
             View course
           </Button>
+          </Link>
           <br />
           <br />
           <div

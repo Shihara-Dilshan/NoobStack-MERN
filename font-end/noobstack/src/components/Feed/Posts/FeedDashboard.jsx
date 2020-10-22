@@ -28,7 +28,7 @@ class FeedDashboard extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/courses/all")
+      .get("http://localhost:5000/questions/all")
       .then((res) => {
         this.setState({ courseData: res.data, isLoading: false });
       })
@@ -57,10 +57,10 @@ class FeedDashboard extends Component {
 
          
 		  <Tabs
-                  defaultActiveKey="overview"
+                  defaultActiveKey="all"
                   style={{ background: "#f2f2f2" }}
                 >
-                  <Tab eventKey="overview" title="Overview" >
+                  <Tab eventKey="all" title="All" >
                     <Jumbotron
                       style={{
                         backgroundColor: "#f2f2f2",
@@ -69,12 +69,12 @@ class FeedDashboard extends Component {
                         height: this.state.currentScreenHeight,
                       }}
                     >
-                      {this.state.courseData.map((course) => (
+                      {this.state.courseData.map((question) => (
                         <Card size="lg" block style={{ marginBottom: "0px" }}>
                           <Card.Header>
-                            <b className="text-info">{course.title}</b>{" "}
+                            <b className="text-info">{question.title}</b>{" "}
                             <Card.Text style={{ fontSize: "15px" }}>
-                              {course.discription}
+                              {question.description}
                             </Card.Text>
                             <small className="text-muted">
                       asked by shihara dilshan at 2020.20.12 22.00AM
@@ -82,7 +82,7 @@ class FeedDashboard extends Component {
                     <br />
                     <small className="text-muted">
                       <Button
-                              id={course._id}
+                              id={question._id}
                               variant="outline-success"
                               size="sm"
                               onClick={this.remove}
@@ -91,7 +91,7 @@ class FeedDashboard extends Component {
                             </Button>
                             { " " }
                         <Button
-                              id={course._id}
+                              id={question._id}
                               variant="success"
                               size="sm"
                               onClick={this.remove}
@@ -107,36 +107,100 @@ class FeedDashboard extends Component {
                       ))}
                     </Jumbotron>
                   </Tab>
-                  <Tab eventKey="courses" title="Courses">
-                    <Jumbotron
-                      style={{ backgroundColor: "#f2f2f2", padding: "0px" }}
-                    >
-                      <h1>Hello, world!</h1>
-                      <p>
-                        This is a simple hero unit, a simple jumbotron-style
-                        component for calling extra attention to featured
-                        content or information.
-                      </p>
-                      <p>
-                        <Button variant="primary">Learn more</Button>
-                      </p>
-                    </Jumbotron>
-                  </Tab>
-                  <Tab eventKey="settings" title="Settings">
-                    <Jumbotron
-                      style={{ backgroundColor: "#f2f2f2", padding: "0px" }}
-                    >
-                      <h1>Hello, world!</h1>
-                      <p>
-                        This is a simple hero unit, a simple jumbotron-style
-                        component for calling extra attention to featured
-                        content or information.
-                      </p>
-                      <p>
-                        <Button variant="primary">Learn more</Button>
-                      </p>
-                    </Jumbotron>
-                  </Tab>
+            <Tab eventKey="javascript" title="JavaScript" >
+              <Jumbotron
+                  style={{
+                    backgroundColor: "#f2f2f2",
+                    padding: "5px",
+                    overflow: "auto",
+                    height: this.state.currentScreenHeight,
+                  }}
+              >
+                {this.state.courseData.filter(question => question.category === "JavaScript").map((question) => (
+                    <Card size="lg" block style={{ marginBottom: "0px" }}>
+                      <Card.Header>
+                        <b className="text-info">{question.title}</b>{" "}
+                        <Card.Text style={{ fontSize: "15px" }}>
+                          {question.description}
+                        </Card.Text>
+                        <small className="text-muted">
+                          asked by shihara dilshan at 2020.20.12 22.00AM
+                        </small>
+                        <br />
+                        <small className="text-muted">
+                          <Button
+                              id={question._id}
+                              variant="outline-success"
+                              size="sm"
+                              onClick={this.remove}
+                          >
+                            13 views
+                          </Button>
+                          { " " }
+                          <Button
+                              id={question._id}
+                              variant="success"
+                              size="sm"
+                              onClick={this.remove}
+                          >
+                            3 answers
+                          </Button>
+                        </small>
+
+                      </Card.Header>
+
+
+                    </Card>
+                ))}
+              </Jumbotron>
+            </Tab>
+            <Tab eventKey="HTMLCSS" title="HTML/CSS" >
+              <Jumbotron
+                  style={{
+                    backgroundColor: "#f2f2f2",
+                    padding: "5px",
+                    overflow: "auto",
+                    height: this.state.currentScreenHeight,
+                  }}
+              >
+                {this.state.courseData.filter(question => question.category === "HTML/CSS").map((question) => (
+                    <Card size="lg" block style={{ marginBottom: "0px" }}>
+                      <Card.Header>
+                        <b className="text-info">{question.title}</b>{" "}
+                        <Card.Text style={{ fontSize: "15px" }}>
+                          {question.description}
+                        </Card.Text>
+                        <small className="text-muted">
+                          asked by shihara dilshan at 2020.20.12 22.00AM
+                        </small>
+                        <br />
+                        <small className="text-muted">
+                          <Button
+                              id={question._id}
+                              variant="outline-success"
+                              size="sm"
+                              onClick={this.remove}
+                          >
+                            13 views
+                          </Button>
+                          { " " }
+                          <Button
+                              id={question._id}
+                              variant="success"
+                              size="sm"
+                              onClick={this.remove}
+                          >
+                            3 answers
+                          </Button>
+                        </small>
+
+                      </Card.Header>
+
+
+                    </Card>
+                ))}
+              </Jumbotron>
+            </Tab>
                 </Tabs>
         </Jumbotron>
 

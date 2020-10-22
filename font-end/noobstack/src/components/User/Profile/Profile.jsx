@@ -113,7 +113,8 @@ class Profile extends Component {
               <Col sm={4}>
                 <Card style={{ background: "#f2f2f2" }}>
                   <Card.Img
-                    className="container profileImageRounded"
+                    className="container"
+                    id="profileImageRounded"
                     style={{
                       paddingTop: "30px",
                       paddingLeft: "30px",

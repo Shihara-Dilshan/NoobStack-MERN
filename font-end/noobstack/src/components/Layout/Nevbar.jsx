@@ -48,8 +48,17 @@ class Nevbar extends Component {
               <Nav.Link>
                 <Link to="/courses">Courses</Link>
               </Nav.Link>
+               <Nav.Link>
+                <Link to="/courses">Frameworks</Link>
+              </Nav.Link>
              <Nav.Link>
                 <Link to="/feed">Feed</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="/feed">DataStructures</Link>
+              </Nav.Link>
+               <Nav.Link>
+                <Link to="/feed">Algorithms</Link>
               </Nav.Link>
               <NavDropdown
                 title="Account"
@@ -78,7 +87,16 @@ class Nevbar extends Component {
                 <Link to="/courses">Courses</Link>
               </Nav.Link>
               <Nav.Link>
+                <Link to="/courses">Frameworks</Link>
+              </Nav.Link>
+              <Nav.Link>
                 <Link to="/feed">Feed</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="/feed">DataStructures</Link>
+              </Nav.Link>
+               <Nav.Link>
+                <Link to="/feed">Algorithms</Link>
               </Nav.Link>
               <Nav.Link>
                 <Link to="/login">Login</Link>

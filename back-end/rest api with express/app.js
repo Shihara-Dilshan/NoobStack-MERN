@@ -15,10 +15,12 @@ app.use(cors());
 const postRoute = require('./routes/posts');
 const userRoute = require('./routes/users');
 const CourseRoute = require('./routes/courses');
+const QuestionRoute = require('./routes/questions');
 
 app.use('/posts', postRoute);
 app.use('/users', userRoute);
 app.use('/courses', CourseRoute);
+app.use('/questions', QuestionRoute);
 
 //ROUTES
 app.get("/", (req, res) => {

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f56b4d02-44d7-46c3-b7b3-17407d1ccd49" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/back-end/rest api with express/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/rest api with express/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Courses/MainLanguages/EnrollCourseCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Courses/MainLanguages/EnrollCourseCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/FeedDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/FeedDashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Layout/Nevbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Layout/Nevbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/User/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/User/Profile/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/User/Profile/UpdateProfile/UpdateProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/User/Profile/UpdateProfile/UpdateProfile.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jFI29OsaPks3QF1EDoutLQxSF7" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f56b4d02-44d7-46c3-b7b3-17407d1ccd49" name="Default Changelist" comment="" />
+      <created>1603393202373</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603393202373</updated>
+      <workItem from="1603393257822" duration="3484000" />
+      <workItem from="1603398352266" duration="218000" />
+      <workItem from="1603399346825" duration="396000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
