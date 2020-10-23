@@ -22,7 +22,7 @@ class ViewQuestion extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true
+      isLoading: true,
     };
   }
 
@@ -30,6 +30,8 @@ class ViewQuestion extends Component {
   render = () => {
       const newTo = {
           pathname: `/view/${this.props.id}`,
+          id: this.props.id,
+          comments: this.props.comments,
           title: this.props.title,
           description: this.props.description,
           imageUrl: this.props.image,

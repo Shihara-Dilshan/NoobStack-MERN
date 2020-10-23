@@ -42,7 +42,7 @@ class Comment extends Component {
                                       <b>{this.props.answer}</b>
                                   </Card.Text>
                                   <small className="text-muted">
-                                      Answered by <b>shihara dilshan</b> at 2020.20.12 22.00AM
+                                      Answered by <b>{this.props.auther}</b> at {this.props.date}
                                   </small>
 
 

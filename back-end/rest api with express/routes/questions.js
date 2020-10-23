@@ -35,5 +35,17 @@ router.get("/all",async (req, res) => {
     }
 });
 
+//UPDATE SPECIFIC QUESTION(add new comment)
+router.patch("/:questionId", async (req, res) => {
+    try {
+        const updatedQuestion = await Question.updateOne(
+            { _id: req.params.questionId },
+            { $push: { comments : { auther: req.body.comments.auther, autherUniqueId: req.body.comments.autherUniqueId, comment: req.body.comments.comment} } }
+        );
+        res.json(updatedQuestion);
+    } catch (err) {
+        res.json({ message: err });
+    }
+});
 
 module.exports = router;

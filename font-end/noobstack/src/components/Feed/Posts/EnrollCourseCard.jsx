@@ -18,14 +18,13 @@ class EnrollCourseCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      answers: [{"id": 1,"answer": "\n" +
-              "\n" +
-              "One thing you have to know it's that both fetch and setTimeout functions are not really a functions of javascript. They belong to Window - Web Apis. You can read more about it here: https://developer.mozilla.org/en-US/docs/Web/API/Window\n" +
-              "\n" +
-              "And whenever you are using those functions they go of the call stack and into a window api that is written in probably in C# or something. Once they are done doing what they are suppose to do, they send back response inside a callback queue, which u can imagine as a different call stack.\n" +
-              "\n" +
-              "Javascript itself is single threaded but with functions from window api it can be run async.\n"},{"id": 2,"answer": "What exactly is a \"method that takes a long time to execute\"? Something like while (true) {}? Or an AJAX request or something like that?"},{"id": 3,"answer": "The API function will end executing immediately and log nothing of interest. fetch is returning a promise, and to get the promise result you need to add a .then callback to it. At which point it'll behave the same as the setTimeout case"}]
+      answers: this.props.comments,
+      id: this.props.id,
+      userData: [],
+      isLoading: true,
+      comment: "",
     };
+
   }
 
     scrollPage = () => {
@@ -44,6 +43,18 @@ class EnrollCourseCard extends Component {
     window.scrollTo(0, 0);
       try {
           auth.checkAuthentication();
+          const userId = auth.getCheckAuthentication()._id;
+
+          axios
+              .get(`http://localhost:5000/users/spefic/${userId}`)
+              .then((res) => {
+                  this.setState({
+                      userData: res.data,
+                      isLoading: false
+                  });
+              })
+              .catch((err) => console.log(err));
+
           const answer = document.getElementById('submitanswerBtn');
           answer.classList.remove('hide')
 
@@ -54,13 +65,31 @@ class EnrollCourseCard extends Component {
           const textArea=  document.getElementById("answerArea");
           textArea.classList.add('hide');
       }
+
   }
 
     postAnswer = () => {
-      const oldAnswers = this.state.answers;
-      oldAnswers.push({"id": 1,"answer": "dsdsdsdsdsdsd"});
-        console.log(oldAnswers)
-     this.setState({answers: oldAnswers});
+
+       if(this.state.comment === "" || this.state.comment.length === 0){
+           return ;
+       }
+
+        axios
+            .patch(`http://localhost:5000/questions/${this.state.id}`,
+                {
+                    comments: {
+                        auther: `${this.state.userData.fname} ${this.state.userData.lname}`,
+                        autherUniqueId: this.state.userData._id,
+                        comment: this.state.comment
+                    }
+                }
+                )
+            .then( res => {
+                const oldAnswers = this.state.answers;
+                oldAnswers.push({"_id": 1,"auther": `${this.state.userData.fname} ${this.state.userData.lname}`, "autherUniqueId": this.state.userData._id, "comment" : this.state.comment, "date" : "Few seconds ago" });
+                this.setState({answers: oldAnswers, comment: ""});
+            })
+            .catch(err => console.log(err))
 
     }
 
@@ -89,7 +118,7 @@ class EnrollCourseCard extends Component {
                     size="sm"
                     onClick={this.scrollPage}
                 >
-                    13 answers
+                    {this.state.answers.length} answers
                 </Button>
             </small>
         </Card.Body>
@@ -103,7 +132,7 @@ class EnrollCourseCard extends Component {
             </Button>
           <br />
           {this.state.answers.map( answer => (
-          	<Comment answer={answer.answer}/>
+          	<Comment answer={answer.comment} auther={answer.auther} comment={answer.comment} date={answer.date}/>
           ))}
           <hr />
 
@@ -111,7 +140,7 @@ class EnrollCourseCard extends Component {
                 <Form.Label className="text-dark"><b>Your Answer</b></Form.Label>
                 <Link to="/login"><Button  sm style={{float:"right"}} variant="danger" className="hide" id="logintoanswer">Login to add an answer</Button></Link>
                 <Button onClick={this.postAnswer} sm style={{float:"right"}} variant="danger" className="hide" id="submitanswerBtn">Post</Button>
-                <Form.Control active as="textarea" id="answerArea" rows={10} style={{marginTop:"10px"}} />
+                <Form.Control active as="textarea" id="answerArea" rows={10} style={{marginTop:"10px"}} value={this.state.comment} onChange={(e) => {this.setState({comment: e.target.value})}}/>
             </Form.Group>
 
         </Card.Footer>
