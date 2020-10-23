@@ -16,7 +16,13 @@ class EnrollCourseCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      answers: [{"id": 1,"answer": "dsdsdsdsdsdsd"},{"id": 2,"answer": "dsdsdsdsdsdsd"},{"id": 3,"answer": "dsdsdsdsdsdsd"}]
+      answers: [{"id": 1,"answer": "\n" +
+              "\n" +
+              "One thing you have to know it's that both fetch and setTimeout functions are not really a functions of javascript. They belong to Window - Web Apis. You can read more about it here: https://developer.mozilla.org/en-US/docs/Web/API/Window\n" +
+              "\n" +
+              "And whenever you are using those functions they go of the call stack and into a window api that is written in probably in C# or something. Once they are done doing what they are suppose to do, they send back response inside a callback queue, which u can imagine as a different call stack.\n" +
+              "\n" +
+              "Javascript itself is single threaded but with functions from window api it can be run async.\n"},{"id": 2,"answer": "What exactly is a \"method that takes a long time to execute\"? Something like while (true) {}? Or an AJAX request or something like that?"},{"id": 3,"answer": "The API function will end executing immediately and log nothing of interest. fetch is returning a promise, and to get the promise result you need to add a .then callback to it. At which point it'll behave the same as the setTimeout case"}]
     };
   }
 
@@ -48,7 +54,7 @@ class EnrollCourseCard extends Component {
         <Card.Footer>
          <Card.Text className="text-muted text-center">3 Answers</Card.Text>
           {this.state.answers.map( answer => (
-          	<Comment />
+          	<Comment answer={answer.answer}/>
           ))}
           <hr />
           <Container>

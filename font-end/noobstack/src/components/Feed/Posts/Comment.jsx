@@ -39,7 +39,7 @@ class Comment extends Component {
                               <Card.Header className="test">
                                   <Link to={newTo}><b className="text-info test">{this.props.title}</b></Link>{" "}
                                   <Card.Text style={{ fontSize: "15px" }}>
-                                      {this.props.description}
+                                      {this.props.answer}
                                   </Card.Text>
                                   <small className="text-muted">
                                       asked by shihara dilshan at 2020.20.12 22.00AM

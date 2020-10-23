@@ -10,6 +10,8 @@ import { Card } from "react-bootstrap";
 import { Tabs } from "react-bootstrap";
 import { Tab } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 
 import axios from "axios";
 import ViewQuestion from "./ViewQuestion";
@@ -17,6 +19,7 @@ import ViewQuestion from "./ViewQuestion";
 import "./../../../App.css";
 
 import CourseCard from "./CourseCard";
+import auth from "../../../auth";
 
 class FeedDashboard extends Component {
   constructor(props) {
@@ -24,10 +27,21 @@ class FeedDashboard extends Component {
     this.state = {
       isLoading: true,
       courseData: [],
+      isLoggedIn: false
     };
   }
 
   componentDidMount() {
+
+    try {
+      auth.checkAuthentication();
+      const userId = auth.getCheckAuthentication()._id;
+      this.setState({isLoggedIn: true})
+    } catch (err) {
+      this.setState({isLoggedIn: false})
+    }
+
+
     axios
       .get("http://localhost:5000/questions/all")
       .then((res) => {
@@ -67,13 +81,20 @@ class FeedDashboard extends Component {
                         >
                             Top Questions
                         </h3></Col>
-                        <Col> <Button
+                        <Col> {this.state.isLoggedIn ? <Link to="/ask" > <Button
                             variant="danger"
                             size="sm"
                             style={{ marginTop: "30px", marginBottom: "20px",float: "right" }}
                         >
-                            Ask Question
-                        </Button></Col>
+                          Ask Question
+                        </Button></Link> : <Link to="/login" ><Button
+                            variant="danger"
+                            size="sm"
+                            style={{ marginTop: "30px", marginBottom: "20px",float: "right" }}
+                        >
+                          Login to ask questions
+                        </Button></Link>}
+                          </Col>
                     </Row>
 
 
