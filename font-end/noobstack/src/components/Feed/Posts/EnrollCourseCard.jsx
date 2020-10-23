@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 import Comment from "./Comment";
 
 import "./../../../App.css";
+import auth from "../../../auth";
+import axios from "axios";
 
 class EnrollCourseCard extends Component {
   constructor(props) {
@@ -29,7 +31,7 @@ class EnrollCourseCard extends Component {
     scrollPage = () => {
         let element = document.getElementById( 'beginAnswer' );
         let pos = this.getPosition( element );
-        
+
         window.scrollTo(pos.x , pos.y);
     }
 
@@ -40,6 +42,18 @@ class EnrollCourseCard extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+      try {
+          auth.checkAuthentication();
+          const answer = document.getElementById('submitanswerBtn');
+          answer.classList.remove('hide')
+
+      } catch (err) {
+          const logintoAnswer = document.getElementById('logintoanswer');
+          logintoAnswer.classList.remove('hide');
+
+          const textArea=  document.getElementById("answerArea");
+          textArea.classList.add('hide');
+      }
   }
 
     postAnswer = () => {
@@ -85,7 +99,7 @@ class EnrollCourseCard extends Component {
         </Card.Footer>
         <Card.Footer>
             <Button variant="success" size="sm" id="beginAnswer" block onClick={this.editProfile} className="profileDetails">
-                3 Answers
+                Answers for the questions
             </Button>
           <br />
           {this.state.answers.map( answer => (
@@ -93,9 +107,11 @@ class EnrollCourseCard extends Component {
           ))}
           <hr />
 
-            <Form.Group  controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Your Answer</Form.Label><Button onClick={this.postAnswer} sm style={{float:"right"}}>Post</Button>
-                <Form.Control as="textarea" rows={10} style={{marginTop:"10px"}} />
+            <Form.Group  controlId="exampleForm.ControlTextarea1" style={{marginLeft: "10px",marginRight: "12px"}}>
+                <Form.Label className="text-dark"><b>Your Answer</b></Form.Label>
+                <Link to="/login"><Button  sm style={{float:"right"}} variant="danger" className="hide" id="logintoanswer">Login to add an answer</Button></Link>
+                <Button onClick={this.postAnswer} sm style={{float:"right"}} variant="danger" className="hide" id="submitanswerBtn">Post</Button>
+                <Form.Control active as="textarea" id="answerArea" rows={10} style={{marginTop:"10px"}} />
             </Form.Group>
 
         </Card.Footer>

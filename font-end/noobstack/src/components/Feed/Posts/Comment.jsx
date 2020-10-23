@@ -35,35 +35,16 @@ class Comment extends Component {
           imageUrl: this.props.image,
       }
     return (
-                  <Card size="lg" block style={{ marginBottom: "0px" }} className="test">
+                  <Card size="lg" block style={{ marginBottom: "10px" }} className="test text-dark border-secondary" variance="dark">
                               <Card.Header className="test">
                                   <Link to={newTo}><b className="text-info test">{this.props.title}</b></Link>{" "}
                                   <Card.Text style={{ fontSize: "15px" }}>
-                                      {this.props.answer}
+                                      <b>{this.props.answer}</b>
                                   </Card.Text>
                                   <small className="text-muted">
-                                      asked by shihara dilshan at 2020.20.12 22.00AM
+                                      Answered by <b>shihara dilshan</b> at 2020.20.12 22.00AM
                                   </small>
-                                  <br />
-                                  <small className="text-muted">
-                                      <Button
-                                          id={this.props.id}
-                                          variant="outline-success"
-                                          size="sm"
-                                          onClick={this.remove}
-                                      >
-                                          {this.props.views} views
-                                      </Button>
-                                      { " " }
-                                      <Button
-                                          id={this.props.id}
-                                          variant="success"
-                                          size="sm"
-                                          onClick={this.remove}
-                                      >
-                                          3 answers
-                                      </Button>
-                                  </small>
+
 
                               </Card.Header>
 

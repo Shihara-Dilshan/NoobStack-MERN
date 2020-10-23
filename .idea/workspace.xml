@@ -21,10 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f56b4d02-44d7-46c3-b7b3-17407d1ccd49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/rest api with express/routes/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/rest api with express/routes/questions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/AskQuestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/AskQuestion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/Comment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/Comment.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/EnrollCourseCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/EnrollCourseCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/ViewQs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/ViewQs.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +72,7 @@
       <workItem from="1603440204068" duration="11232000" />
       <workItem from="1603453820961" duration="1211000" />
       <workItem from="1603455356058" duration="1422000" />
-      <workItem from="1603457349171" duration="11604000" />
+      <workItem from="1603457349171" duration="13998000" />
     </task>
     <servers />
   </component>
