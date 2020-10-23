@@ -26,7 +26,6 @@ class AskQuestion extends Component{
                         userData: res.data,
                         isLoading: false
                     });
-                    console.log(this.state.userData)
                 })
                 .catch((err) => console.log(err));
         } catch (err) {
@@ -43,6 +42,9 @@ class AskQuestion extends Component{
 
     sumbitQuestion = (e) => {
         e.preventDefault();
+
+        const webToken = localStorage.getItem("auth-token");
+        axios.defaults.headers.common["auth-token"] = "Bearer " + webToken;
 
         const loadingTag = document.querySelectorAll('.loadingQuestionPost');
         const success = document.getElementById('successQuestionPost');
@@ -67,7 +69,7 @@ class AskQuestion extends Component{
                     "views": 0,
                     "description": this.state.description,
                     "category": this.state.category,
-                })
+                }, { headers: { "auth-token": webToken } })
                 .then(res => {
                     loadingTag.forEach( node => {
                         node.classList.add('hide')
@@ -106,7 +108,7 @@ class AskQuestion extends Component{
                                 "description": this.state.description,
                                 "image": url,
                                 "category": this.state.category,
-                            })
+                            }, { headers: { "auth-token": webToken } })
                             .then(res => {
                                 loadingTag.forEach( node => {
                                     node.classList.add('hide')

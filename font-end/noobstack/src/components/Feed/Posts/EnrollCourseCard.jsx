@@ -26,6 +26,18 @@ class EnrollCourseCard extends Component {
     };
   }
 
+    scrollPage = () => {
+        let element = document.getElementById( 'beginAnswer' );
+        let pos = this.getPosition( element );
+        
+        window.scrollTo(pos.x , pos.y);
+    }
+
+     getPosition = ( element ) => {
+        let rect = element.getBoundingClientRect();
+        return {x:rect.left,y:rect.top};
+    }
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -42,27 +54,50 @@ class EnrollCourseCard extends Component {
     return (
       <Card>
         <Card.Body>
-          <Card.Title>{this.props.title}</Card.Title>
+            <Card.Title className="text-dark"><u><b>{this.props.title}</b></u></Card.Title>
             <Card.Text style={{ fontSize: '0.65em' }}
                        className="text-muted" >Asked 4 years, 11 months ago by Shihara Dilshan</Card.Text>
           <Card.Text style={{ fontSize: '1em' }}
                      className="text-muted" >{this.props.description}</Card.Text>
+            <small className="text-muted">
+                <Button
+                    id={this.props.id}
+                    variant="outline-success"
+                    size="sm"
+                    onClick={this.remove}
+                >
+                    122k views
+                </Button>
+                { " " }
+                <Button
+                    id={this.props.id}
+                    variant="success"
+                    size="sm"
+                    onClick={this.scrollPage}
+                >
+                    13 answers
+                </Button>
+            </small>
         </Card.Body>
+
         <Card.Footer>
           <Image fluid thumbnail src={this.props.courseImage} />
         </Card.Footer>
         <Card.Footer>
-         <Card.Text className="text-muted text-center">3 Answers</Card.Text>
+            <Button variant="success" size="sm" id="beginAnswer" block onClick={this.editProfile} className="profileDetails">
+                3 Answers
+            </Button>
+          <br />
           {this.state.answers.map( answer => (
           	<Comment answer={answer.answer}/>
           ))}
           <hr />
-          <Container>
-            <Form.Group style={{padding:"10px"}} controlId="exampleForm.ControlTextarea1">
+
+            <Form.Group  controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Your Answer</Form.Label><Button onClick={this.postAnswer} sm style={{float:"right"}}>Post</Button>
                 <Form.Control as="textarea" rows={10} style={{marginTop:"10px"}} />
             </Form.Group>
-              </Container>
+
         </Card.Footer>
       </Card>
     );

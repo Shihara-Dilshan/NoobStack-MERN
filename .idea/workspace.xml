@@ -21,10 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f56b4d02-44d7-46c3-b7b3-17407d1ccd49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/rest api with express/models/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/rest api with express/models/Question.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/rest api with express/routes/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/rest api with express/routes/questions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/AskQuestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/AskQuestion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/User/Profile/UpdateProfile/UpdateProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/User/Profile/UpdateProfile/UpdateProfile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/EnrollCourseCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/EnrollCourseCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/ViewQs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/ViewQs.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +56,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -73,7 +74,7 @@
       <workItem from="1603440204068" duration="11232000" />
       <workItem from="1603453820961" duration="1211000" />
       <workItem from="1603455356058" duration="1422000" />
-      <workItem from="1603457349171" duration="7819000" />
+      <workItem from="1603457349171" duration="11604000" />
     </task>
     <servers />
   </component>

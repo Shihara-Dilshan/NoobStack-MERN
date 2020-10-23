@@ -20,7 +20,7 @@ class ViewQs extends Component {
   render = () => {
     return (
       <Jumbotron className="test">
-        <Container>
+
           <CardDeck className="text-dark" style={{ marginTop: "20px", marginBottom: "20px" }}>
             <EnrollCourseCard
               title={this.props.location.title}
@@ -28,7 +28,7 @@ class ViewQs extends Component {
               courseImage={this.props.location.imageUrl}
             />
           </CardDeck>
-        </Container>
+
       </Jumbotron>
     );
   };

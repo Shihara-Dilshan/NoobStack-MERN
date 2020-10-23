@@ -2,9 +2,11 @@ const express = require("express");
 const router = express.Router();
 const Question = require("../models/Question");
 
+const verify = require("./verifyToken");
+
 
 //POST A QUESTION
-router.post("/new", async (req, res) => {
+router.post("/new", verify, async (req, res) => {
     const question = new Question({
         auther: req.body.auther,
         autherUniqueId: req.body.autherUniqueId,
