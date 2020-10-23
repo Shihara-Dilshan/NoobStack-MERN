@@ -21,10 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f56b4d02-44d7-46c3-b7b3-17407d1ccd49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/Comment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/Comment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/EnrollCourseCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/EnrollCourseCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/FeedDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/FeedDashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/rest api with express/models/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/rest api with express/models/Question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/rest api with express/routes/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/rest api with express/routes/questions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/AskQuestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/Feed/Posts/AskQuestion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-end/noobstack/src/components/User/Profile/UpdateProfile/UpdateProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/font-end/noobstack/src/components/User/Profile/UpdateProfile/UpdateProfile.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +71,9 @@
       <workItem from="1603399346825" duration="956000" />
       <workItem from="1603430167317" duration="1611000" />
       <workItem from="1603440204068" duration="11232000" />
+      <workItem from="1603453820961" duration="1211000" />
+      <workItem from="1603455356058" duration="1422000" />
+      <workItem from="1603457349171" duration="7819000" />
     </task>
     <servers />
   </component>
@@ -87,5 +90,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="330" y="81" width="780" height="776" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603456052871">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="330" y="81" width="780" height="776" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1440.428.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1603456052871" />
   </component>
 </project>

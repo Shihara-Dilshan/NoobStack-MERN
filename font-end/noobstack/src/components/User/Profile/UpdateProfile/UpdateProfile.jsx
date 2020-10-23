@@ -192,7 +192,6 @@ class UpdateProfile extends Component {
   setImage = (e) => {
     if (e.target.files[0]) {
       this.setState({ image: e.target.files[0] });
-      console.log(this.state.image);
     }
   };
 

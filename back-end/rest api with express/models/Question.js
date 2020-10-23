@@ -42,8 +42,12 @@ const QuestionSchema = mongoose.Schema({
     },
     image: {
         type: String,
-        required: true,
+        required: false,
         max: 1024
+    },
+    category: {
+        type: String,
+        required: true
     },
     date: {
         type: Date,

@@ -11,7 +11,8 @@ router.post("/new", async (req, res) => {
         title: req.body.title,
         views: 0,
         description: req.body.description,
-        image: req.body.image
+        image: req.body.image,
+        category: req.body.category,
     });
 
     try {
