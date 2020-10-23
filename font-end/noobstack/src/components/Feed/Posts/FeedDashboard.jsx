@@ -12,6 +12,7 @@ import { Tab } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
 
 import axios from "axios";
+import ViewQuestion from "./ViewQuestion";
 
 import "./../../../App.css";
 
@@ -37,172 +38,169 @@ class FeedDashboard extends Component {
 
   render = () => {
     return (
-      <Jumbotron className="test feed">
-   
-  <Row>
-    <Col> <h3
-            className="text-center"
-            style={{ marginTop: "30px", marginBottom: "20px",float: "left" }}
-          >
-            Top Questions
-          </h3></Col>
-    <Col> <Button
-                              variant="danger"
-                              size="sm"
-                              style={{ marginTop: "30px", marginBottom: "20px",float: "right" }}
-                            >
-                             Ask Question
-                            </Button></Col>
-  </Row>
+        <React.Fragment>
 
-         
-		  <Tabs
-                  defaultActiveKey="all"
-                  style={{ background: "#f2f2f2" }}
+            {this.state.isLoading ? (
+                <Jumbotron>
+                <Button
+                    variant="dark"
+                    disabled
+                    style={{ width: "100%", height: "700px" }}
                 >
-                  <Tab eventKey="all" title="All" >
-                    <Jumbotron
-                      style={{
-                        backgroundColor: "#f2f2f2",
-                        padding: "5px",
-                        overflow: "auto",
-                        height: this.state.currentScreenHeight,
-                      }}
+                    <Spinner
+                        as="span"
+                        animation="grow"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                    />
+                    Loading...
+                </Button>
+                </Jumbotron>
+            ) : (
+                <Jumbotron className="test feed">
+
+                    <Row>
+                        <Col> <h3
+                            className="text-center"
+                            style={{ marginTop: "30px", marginBottom: "20px",float: "left" }}
+                        >
+                            Top Questions
+                        </h3></Col>
+                        <Col> <Button
+                            variant="danger"
+                            size="sm"
+                            style={{ marginTop: "30px", marginBottom: "20px",float: "right" }}
+                        >
+                            Ask Question
+                        </Button></Col>
+                    </Row>
+
+
+                    <Tabs
+                        defaultActiveKey="all"
+                        style={{ background: "#f2f2f2" }}
                     >
-                      {this.state.courseData.map((question) => (
-                        <Card size="lg" block style={{ marginBottom: "0px" }}>
-                          <Card.Header>
-                            <b className="text-info">{question.title}</b>{" "}
-                            <Card.Text style={{ fontSize: "15px" }}>
-                              {question.description}
-                            </Card.Text>
-                            <small className="text-muted">
-                      asked by shihara dilshan at 2020.20.12 22.00AM
-                    </small>
-                    <br />
-                    <small className="text-muted">
-                      <Button
-                              id={question._id}
-                              variant="outline-success"
-                              size="sm"
-                              onClick={this.remove}
+                        <Tab eventKey="all" title="All" >
+                            <Jumbotron
+                                style={{
+                                    backgroundColor: "#f2f2f2",
+                                    padding: "5px",
+                                    overflow: "auto",
+                                    height: this.state.currentScreenHeight,
+                                }}
                             >
-                             13 views
-                            </Button>
-                            { " " }
-                        <Button
-                              id={question._id}
-                              variant="success"
-                              size="sm"
-                              onClick={this.remove}
+                                {this.state.courseData.map((question) => (
+                                    <ViewQuestion image={question.image} views={question.views} title={question.title} description={question.description} id={question._id}/>
+                                ))}
+                            </Jumbotron>
+                        </Tab>
+                        <Tab eventKey="javascript" title="JavaScript" >
+                            <Jumbotron
+                                style={{
+                                    backgroundColor: "#f2f2f2",
+                                    padding: "5px",
+                                    overflow: "auto",
+                                    height: this.state.currentScreenHeight,
+                                }}
                             >
-                             3 answers
-                            </Button>
-                    </small>
-                    
-                          </Card.Header>
-                          
-                          
-                        </Card>
-                      ))}
-                    </Jumbotron>
-                  </Tab>
-            <Tab eventKey="javascript" title="JavaScript" >
-              <Jumbotron
-                  style={{
-                    backgroundColor: "#f2f2f2",
-                    padding: "5px",
-                    overflow: "auto",
-                    height: this.state.currentScreenHeight,
-                  }}
-              >
-                {this.state.courseData.filter(question => question.category === "JavaScript").map((question) => (
-                    <Card size="lg" block style={{ marginBottom: "0px" }}>
-                      <Card.Header>
-                        <b className="text-info">{question.title}</b>{" "}
-                        <Card.Text style={{ fontSize: "15px" }}>
-                          {question.description}
-                        </Card.Text>
-                        <small className="text-muted">
-                          asked by shihara dilshan at 2020.20.12 22.00AM
-                        </small>
-                        <br />
-                        <small className="text-muted">
-                          <Button
-                              id={question._id}
-                              variant="outline-success"
-                              size="sm"
-                              onClick={this.remove}
-                          >
-                            13 views
-                          </Button>
-                          { " " }
-                          <Button
-                              id={question._id}
-                              variant="success"
-                              size="sm"
-                              onClick={this.remove}
-                          >
-                            3 answers
-                          </Button>
-                        </small>
+                                {this.state.courseData.filter(question => question.category === "JavaScript").map((question) => (
+                                    <ViewQuestion title={question.title} description={question.description} id={question._id}/>
+                                ))}
+                            </Jumbotron>
+                        </Tab>
+                        <Tab eventKey="HTMLCSS" title="HTML/CSS" >
+                            <Jumbotron
+                                style={{
+                                    backgroundColor: "#f2f2f2",
+                                    padding: "5px",
+                                    overflow: "auto",
+                                    height: this.state.currentScreenHeight,
+                                }}
+                            >
+                                {this.state.courseData.filter(question => question.category === "HTML/CSS").map((question) => (
+                                    <ViewQuestion title={question.title} description={question.description} id={question._id}/>
+                                ))}
+                            </Jumbotron>
+                        </Tab>
+                        <Tab eventKey="java" title="Java" >
+                            <Jumbotron
+                                style={{
+                                    backgroundColor: "#f2f2f2",
+                                    padding: "5px",
+                                    overflow: "auto",
+                                    height: this.state.currentScreenHeight,
+                                }}
+                            >
+                                {this.state.courseData.filter(question => question.category === "Java").map((question) => (
+                                    <ViewQuestion title={question.title} description={question.description} id={question._id}/>
+                                ))}
+                            </Jumbotron>
+                        </Tab>
+                        <Tab eventKey="python" title="Python" >
+                            <Jumbotron
+                                style={{
+                                    backgroundColor: "#f2f2f2",
+                                    padding: "5px",
+                                    overflow: "auto",
+                                    height: this.state.currentScreenHeight,
+                                }}
+                            >
+                                {this.state.courseData.filter(question => question.category === "Python").map((question) => (
+                                    <ViewQuestion title={question.title} description={question.description} id={question._id}/>
+                                ))}
+                            </Jumbotron>
+                        </Tab>
+                        <Tab eventKey="android" title="Android" >
+                            <Jumbotron
+                                style={{
+                                    backgroundColor: "#f2f2f2",
+                                    padding: "5px",
+                                    overflow: "auto",
+                                    height: this.state.currentScreenHeight,
+                                }}
+                            >
+                                {this.state.courseData.filter(question => question.category === "Android").map((question) => (
+                                    <ViewQuestion title={question.title} description={question.description} id={question._id}/>
+                                ))}
+                            </Jumbotron>
+                        </Tab>
+                        <Tab eventKey="sql" title="SQL" >
+                            <Jumbotron
+                                style={{
+                                    backgroundColor: "#f2f2f2",
+                                    padding: "5px",
+                                    overflow: "auto",
+                                    height: this.state.currentScreenHeight,
+                                }}
+                            >
+                                {this.state.courseData.filter(question => question.category === "SQL").map((question) => (
+                                    <ViewQuestion title={question.title} description={question.description} id={question._id}/>
+                                ))}
+                            </Jumbotron>
+                        </Tab>
+                        <Tab eventKey="other" title="Other" >
+                            <Jumbotron
+                                style={{
+                                    backgroundColor: "#f2f2f2",
+                                    padding: "5px",
+                                    overflow: "auto",
+                                    height: this.state.currentScreenHeight,
+                                }}
+                            >
+                                {this.state.courseData.filter(question => question.category === "Other").map((question) => (
+                                    <ViewQuestion title={question.title} description={question.description} id={question._id}/>
+                                ))}
+                            </Jumbotron>
+                        </Tab>
+                    </Tabs>
+                </Jumbotron>
+            )}
 
-                      </Card.Header>
-
-
-                    </Card>
-                ))}
-              </Jumbotron>
-            </Tab>
-            <Tab eventKey="HTMLCSS" title="HTML/CSS" >
-              <Jumbotron
-                  style={{
-                    backgroundColor: "#f2f2f2",
-                    padding: "5px",
-                    overflow: "auto",
-                    height: this.state.currentScreenHeight,
-                  }}
-              >
-                {this.state.courseData.filter(question => question.category === "HTML/CSS").map((question) => (
-                    <Card size="lg" block style={{ marginBottom: "0px" }}>
-                      <Card.Header>
-                        <b className="text-info">{question.title}</b>{" "}
-                        <Card.Text style={{ fontSize: "15px" }}>
-                          {question.description}
-                        </Card.Text>
-                        <small className="text-muted">
-                          asked by shihara dilshan at 2020.20.12 22.00AM
-                        </small>
-                        <br />
-                        <small className="text-muted">
-                          <Button
-                              id={question._id}
-                              variant="outline-success"
-                              size="sm"
-                              onClick={this.remove}
-                          >
-                            13 views
-                          </Button>
-                          { " " }
-                          <Button
-                              id={question._id}
-                              variant="success"
-                              size="sm"
-                              onClick={this.remove}
-                          >
-                            3 answers
-                          </Button>
-                        </small>
-
-                      </Card.Header>
+        </React.Fragment>
 
 
-                    </Card>
-                ))}
-              </Jumbotron>
-            </Tab>
-                </Tabs>
-        </Jumbotron>
+
 
     );
   };
