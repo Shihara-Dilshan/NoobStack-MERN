@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { Carousel } from "react-bootstrap";
 
 import LanguagesDashboard from "./../Courses/MainLanguages/LanguagesDashboard";
+import sliderImage1 from "./../../static/images/sliderimage1.png";
+import sliderImage2 from "./../../static/images/sliderImage2.png";
+import sliderImage3 from "./../../static/images/sliderImage3.png";
+import sliderImage4 from "./../../static/images/sliderImage4.png";
+import sliderImage5 from "./../../static/images/sliderImage5.jpg";
 
 class Home extends Component {
   constructor(props) {
@@ -16,65 +21,65 @@ class Home extends Component {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://wallpapercave.com/wp/wp2465962.png"
+              src={sliderImage4}
               alt="First slide"
             />
             <Carousel.Caption className="d-none d-sm-block">
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>learn JavaScript</h3>
+              <p>Learning JavaScript will help you to get a better job opportunities</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://wallpapercave.com/wp/wp2465922.png"
+              src={sliderImage2}
               alt="Third slide"
             />
 
             <Carousel.Caption className="d-none d-sm-block">
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>Ask any question</h3>
+              <p>Post any question based on HTML, CSS or any other topic you want.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://wallpapercave.com/wp/wp2465915.png"
+              src={sliderImage1}
               alt="Third slide"
             />
 
             <Carousel.Caption className="d-none d-sm-block">
-              <h3>Third slide label</h3>
+              <h3>JavaScript on the Server-Side</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Learn Node, a run time library for JavaScript to run on the server side.
               </p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://wallpapercave.com/wp/wp2465949.png"
+              src={sliderImage3}
               alt="Third slide"
             />
 
             <Carousel.Caption className="d-none d-sm-block">
-              <h3>Third slide label</h3>
+              <h3>MEAN Stack</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                MongoDB, Express, Angular, Node
               </p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://wallpapercave.com/wp/wp2465923.jpg"
+              src={sliderImage5}
               alt="Third slide"
             />
 
             <Carousel.Caption className="d-none d-sm-block">
-              <h3>Third slide label</h3>
+              <h3>Learn React</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Most popular, fast and powerfull front end framework in thhe world.
               </p>
             </Carousel.Caption>
           </Carousel.Item>

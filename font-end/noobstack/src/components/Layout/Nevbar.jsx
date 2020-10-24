@@ -34,7 +34,7 @@ class Nevbar extends Component {
 
   render = () => {
     return (
-      <Navbar expand="lg" bg="dark" variant="dark" fixed="top">
+      <Navbar expand="lg" bg="dark" variant="dark" fixed="top" >
         <Link to="/">
           <Navbar.Brand href="#home">NoobStack</Navbar.Brand>
         </Link>
