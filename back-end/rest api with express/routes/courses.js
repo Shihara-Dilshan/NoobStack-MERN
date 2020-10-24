@@ -39,6 +39,29 @@ router.get("/all",async (req, res) => {
   }
 });
 
+//UPDATE SPECIFIC COURSE(add new content)
+router.patch("/specific/:courseId", async (req, res) => {
+  try {
+    const updatedCourse = await Course.updateOne(
+        { _id: req.params.courseId },
+        { $push: { content : { title: req.body.content.title, description: req.body.content.description, imageUrl: req.body.content.imageUrl,  videoUrl: req.body.content.videoUrl} } }
+    );
+    res.json(updatedCourse);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+//GET SPECIFIC COURSE
+router.get("/spefic/:courseId", async (req, res) => {
+  try {
+    const speficCourse = await Course.findById(req.params.courseId);
+    res.json(speficCourse);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 //DELETE SPEFIC COURSE
 router.delete("/:courseId", async (req, res) => {
   try {

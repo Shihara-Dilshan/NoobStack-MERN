@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-import { CardDeck } from "react-bootstrap";
+
 import { Jumbotron } from "react-bootstrap";
 import { Row } from "react-bootstrap";
-import { Container } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
-import { Card } from "react-bootstrap";
 import { Tabs } from "react-bootstrap";
 import { Tab } from "react-bootstrap";
-import { Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
@@ -18,7 +15,6 @@ import ViewQuestion from "./ViewQuestion";
 
 import "./../../../App.css";
 
-import CourseCard from "./CourseCard";
 import auth from "../../../auth";
 
 class FeedDashboard extends Component {
@@ -35,7 +31,6 @@ class FeedDashboard extends Component {
 
     try {
       auth.checkAuthentication();
-      const userId = auth.getCheckAuthentication()._id;
       this.setState({isLoggedIn: true})
     } catch (err) {
       this.setState({isLoggedIn: false})
@@ -43,7 +38,7 @@ class FeedDashboard extends Component {
 
 
     axios
-      .get("http://localhost:5000/questions/all")
+      .get("https://murmuring-depths-51139.herokuapp.com/questions/all")
       .then((res) => {
         this.setState({ courseData: res.data, isLoading: false });
       })

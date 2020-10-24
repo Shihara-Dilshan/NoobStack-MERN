@@ -86,7 +86,7 @@ class UpdateProfile extends Component {
         const userId = auth.getCheckAuthentication()._id;
 
         axios
-          .patch(`http://localhost:5000/users/update/${userId}`, {
+          .patch(`https://murmuring-depths-51139.herokuapp.com/users/update/${userId}`, {
             fname: this.state.fname,
             lname: this.state.lname,
             imageUrl: this.props.imageurl,
@@ -147,7 +147,7 @@ class UpdateProfile extends Component {
               const userId = auth.getCheckAuthentication()._id;
 
               axios
-                .patch(`http://localhost:5000/users/update/${userId}`, {
+                .patch(`https://murmuring-depths-51139.herokuapp.com/users/update/${userId}`, {
                   fname: this.state.fname,
                   lname: this.state.lname,
                   imageUrl: url,

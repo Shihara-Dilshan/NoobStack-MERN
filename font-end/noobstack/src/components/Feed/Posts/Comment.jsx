@@ -1,21 +1,11 @@
 import React, { Component } from "react";
-import { CardDeck } from "react-bootstrap";
-import { Jumbotron } from "react-bootstrap";
-import { Row } from "react-bootstrap";
-import { Container } from "react-bootstrap";
-import { Col } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import { Spinner } from "react-bootstrap";
-import { Card } from "react-bootstrap";
-import { Tabs } from "react-bootstrap";
-import { Tab } from "react-bootstrap";
-import { Badge } from "react-bootstrap";
 
-import axios from "axios";
+import { Card } from "react-bootstrap";
+
 
 import "./../../../App.css";
 
-import CourseCard from "./CourseCard";
+
 import { Link } from "react-router-dom";
 
 class Comment extends Component {

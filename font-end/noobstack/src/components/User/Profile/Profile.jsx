@@ -35,7 +35,7 @@ class Profile extends Component {
       const userId = auth.getCheckAuthentication()._id;
 
       axios
-        .get(`http://localhost:5000/users/spefic/${userId}`)
+        .get(`https://murmuring-depths-51139.herokuapp.com/users/spefic/${userId}`)
         .then((res) => {
           this.setState({
             userData: res.data,
@@ -59,7 +59,7 @@ class Profile extends Component {
 
       axios
         .patch(
-          `http://localhost:5000/users/remove/${userId}`,
+          `https://murmuring-depths-51139.herokuapp.com/users/remove/${userId}`,
           { id: removeId },
           { headers: { "auth-token": webToken } }
         )
@@ -147,11 +147,11 @@ class Profile extends Component {
               </Col>
               <Col sm={8}>
                 <Tabs
-                  defaultActiveKey="overview"
+                  defaultActiveKey="enrolledCourses"
                   id="uncontrolled-tab-example"
                   style={{ background: "#f2f2f2" }}
                 >
-                  <Tab eventKey="overview" title="Overview">
+                  <Tab eventKey="enrolledCourses" title="Enrolled Courses">
                     <Jumbotron
                       style={{
                         backgroundColor: "#f2f2f2",
@@ -183,7 +183,7 @@ class Profile extends Component {
                       ))}
                     </Jumbotron>
                   </Tab>
-                  <Tab eventKey="courses" title="Courses">
+                  <Tab eventKey="questions" title="Questions">
                     <Jumbotron
                       style={{ backgroundColor: "#f2f2f2", padding: "0px" }}
                     >
@@ -198,7 +198,7 @@ class Profile extends Component {
                       </p>
                     </Jumbotron>
                   </Tab>
-                  <Tab eventKey="settings" title="Settings">
+                  <Tab eventKey="settings" title="Settings" disabled>
                     <Jumbotron
                       style={{ backgroundColor: "#f2f2f2", padding: "0px" }}
                     >

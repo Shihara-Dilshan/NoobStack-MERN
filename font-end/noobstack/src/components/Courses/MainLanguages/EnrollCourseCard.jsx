@@ -14,7 +14,7 @@ class EnrollCourseCard extends Component {
     this.state = {
       email: "",
       password: "",
-    };
+    }
   }
 
   componentDidMount() {
@@ -22,6 +22,10 @@ class EnrollCourseCard extends Component {
   }
 
   render = () => {
+    const newTo = {
+      pathname: `/view`,
+      id: this.props.id
+    };
     return (
       <Card>
         <Card.Body>
@@ -36,7 +40,7 @@ class EnrollCourseCard extends Component {
           >
             Enroll for this course
           </Button>{" "}
-          <Link to="/view"><Button id="enrollView" className="hide test" variant="success">
+          <Link to={newTo}><Button id="enrollView" className="hide test" variant="success">
             View course
           </Button>
           </Link>

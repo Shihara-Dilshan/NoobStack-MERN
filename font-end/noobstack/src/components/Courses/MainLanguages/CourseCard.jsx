@@ -20,6 +20,7 @@ class CourseCard extends Component {
       title: this.props.courseTitle,
       discription: this.props.courseDiscription,
       imageUrl: this.props.courseImage,
+      id: this.props.id,
     };
     return (
       <Card>
@@ -27,12 +28,12 @@ class CourseCard extends Component {
         <Card.Body>
           <Card.Title>{this.props.courseTitle}</Card.Title>
           <Card.Text>{this.props.courseDiscription}</Card.Text>
-          <Link to={newTo}>
-            <Button variant="success">View Course</Button>
-          </Link>
+
         </Card.Body>
         <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
+          <Link to={newTo}>
+            <Button variant="dark" block size="sm">View Course</Button>
+          </Link>
         </Card.Footer>
       </Card>
     );

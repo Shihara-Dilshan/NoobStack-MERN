@@ -2,10 +2,8 @@ import React, { Component } from "react";
 
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { ProgressBar } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import { Form } from "react-bootstrap";
-import { Container } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 import Comment from "./Comment";
@@ -46,7 +44,7 @@ class EnrollCourseCard extends Component {
           const userId = auth.getCheckAuthentication()._id;
 
           axios
-              .get(`http://localhost:5000/users/spefic/${userId}`)
+              .get(`https://murmuring-depths-51139.herokuapp.com/users/spefic/${userId}`)
               .then((res) => {
                   this.setState({
                       userData: res.data,
@@ -75,7 +73,7 @@ class EnrollCourseCard extends Component {
        }
 
         axios
-            .patch(`http://localhost:5000/questions/${this.state.id}`,
+            .patch(`https://murmuring-depths-51139.herokuapp.com/questions/${this.state.id}`,
                 {
                     comments: {
                         auther: `${this.state.userData.fname} ${this.state.userData.lname}`,

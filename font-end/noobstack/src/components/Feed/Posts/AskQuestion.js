@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./../../../App.css";
-import {Button, Col, Container, Form, Image, Jumbotron, ProgressBar, Row} from "react-bootstrap";
+import {Button, Col, Form, Image, Jumbotron, ProgressBar, Row} from "react-bootstrap";
 import auth from "./../../../auth";
 import axios from "axios";
 import { storageRef2 } from "../../../firebase";
@@ -20,7 +20,7 @@ class AskQuestion extends Component{
             const userId = auth.getCheckAuthentication()._id;
 
             axios
-                .get(`http://localhost:5000/users/spefic/${userId}`)
+                .get(`https://murmuring-depths-51139.herokuapp.com/users/spefic/${userId}`)
                 .then((res) => {
                     this.setState({
                         userData: res.data,
@@ -62,7 +62,7 @@ class AskQuestion extends Component{
 
         if(this.state.image.name === undefined){
             axios
-                .post("http://localhost:5000/questions/new", {
+                .post("https://murmuring-depths-51139.herokuapp.com/questions/new", {
                     "auther": `${this.state.userData.fname} ${this.state.userData.lname}`,
                     "autherUniqueId": this.state.userData._id,
                     "title": this.state.title,
@@ -100,7 +100,7 @@ class AskQuestion extends Component{
                     .then((url) => {
                         console.log(url);
                         axios
-                            .post("http://localhost:5000/questions/new", {
+                            .post("https://murmuring-depths-51139.herokuapp.com/questions/new", {
                                 "auther": `${this.state.userData.fname} ${this.state.userData.lname}`,
                                 "autherUniqueId": this.state.userData._id,
                                 "title": this.state.title,

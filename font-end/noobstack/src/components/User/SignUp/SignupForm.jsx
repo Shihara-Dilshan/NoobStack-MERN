@@ -28,7 +28,7 @@ class SignupForm extends Component {
     preLoader.classList.add("show");
 
     axios
-      .post("http://localhost:5000/users/", {
+      .post("https://murmuring-depths-51139.herokuapp.com/users/", {
         fname: this.state.fname,
         lname: this.state.lname,
         email: this.state.email,

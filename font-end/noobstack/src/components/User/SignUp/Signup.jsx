@@ -43,11 +43,11 @@ class Signup extends Component {
     preLoader.classList.add("show");
 
     axios
-      .get(`http://localhost:5000/users/speficbyemail/${this.state.email}`)
+      .get(`https://murmuring-depths-51139.herokuapp.com/users/speficbyemail/${this.state.email}`)
       .then((res) => {
         if (res.data.length === 0) {
           axios
-            .post("http://localhost:5000/users/register", {
+            .post("https://murmuring-depths-51139.herokuapp.com/users/register", {
               fname: this.state.fname,
               lname: this.state.lname,
               email: this.state.email,

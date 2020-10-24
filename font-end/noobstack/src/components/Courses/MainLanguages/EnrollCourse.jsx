@@ -22,7 +22,7 @@ class EnrollCourse extends Component {
       let userId = auth.getCheckAuthentication()._id;
 
       axios
-        .post(`http://localhost:5000/users/enrolled/${userId}`, {
+        .post(`https://murmuring-depths-51139.herokuapp.com/users/enrolled/${userId}`, {
           course: {
             title: this.props.location.title,
             description: this.props.location.discription,
@@ -61,7 +61,7 @@ class EnrollCourse extends Component {
 
       axios
         .patch(
-          `http://localhost:5000/users/${userId}`,
+          `https://murmuring-depths-51139.herokuapp.com/users/${userId}`,
           {
             course: {
               title: this.props.location.title,
@@ -105,6 +105,7 @@ class EnrollCourse extends Component {
               courseTitle={this.props.location.title}
               courseDiscription={this.props.location.discription}
               courseImage={this.props.location.imageUrl}
+              id={this.props.location.id}
             />
           </CardDeck>
         </Container>

@@ -24,7 +24,7 @@ class LanguagesDashboard extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/courses/all")
+      .get("https://murmuring-depths-51139.herokuapp.com/courses/all")
       .then((res) => {
         this.setState({ courseData: res.data, isLoading: false });
       })
@@ -64,6 +64,7 @@ class LanguagesDashboard extends Component {
                   <Col style={{ marginTop: "20px" }} sm={4}>
                     <CourseCard
                       key={course._id}
+                      id={course._id}
                       courseTitle={course.title}
                       courseDiscription={course.discription}
                       courseImage={course.imageUrl}

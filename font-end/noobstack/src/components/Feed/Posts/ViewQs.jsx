@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { CardDeck } from "react-bootstrap";
 import { Jumbotron } from "react-bootstrap";
-import { Container } from "react-bootstrap";
 
-import auth from "./../../../auth";
-import axios from "axios";
 
 import "./../../../App.css";
 

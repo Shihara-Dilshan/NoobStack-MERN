@@ -23,8 +23,9 @@ class ViewCourse extends Component {
   }
 
   componentDidMount() {
+    const courseId = this.props.location.id;
     axios
-      .get("http://localhost:5000/courses/all")
+      .get(`https://murmuring-depths-51139.herokuapp.com/courses/spefic/${courseId}`)
       .then((res) => {
         this.setState({ courseData: res.data, isLoading: false });
       })
@@ -39,7 +40,7 @@ class ViewCourse extends Component {
             className="text-center"
             style={{ marginTop: "20px", marginBottom: "20px" }}
           >
-            Popular Courses
+            {this.state.courseData.title}
           </h3>
           <CardDeck>
             {this.state.isLoading ? (
@@ -60,13 +61,14 @@ class ViewCourse extends Component {
             ) : (
               <Row>
                 {" "}
-                {this.state.courseData.map((course) => (
+                {this.state.courseData.content.map((content) => (
                   <Col style={{ marginTop: "20px" }} sm={4}>
                     <CourseViewCard
-                      key={course._id}
-                      courseTitle={course.title}
-                      courseDiscription={course.discription}
-                      courseImage={course.imageUrl}
+                      key={content._id}
+                      courseTitle={content.title}
+                      courseDiscription={content.description}
+                      courseImage={content.imageUrl}
+                      courseVideo={content.videoUrl}
                     />
                   </Col>
                 ))}{" "}
