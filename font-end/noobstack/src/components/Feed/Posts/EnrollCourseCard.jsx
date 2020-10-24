@@ -136,7 +136,7 @@ class EnrollCourseCard extends Component {
 
             <Form.Group  controlId="exampleForm.ControlTextarea1" style={{marginLeft: "10px",marginRight: "12px"}}>
                 <Form.Label className="text-dark"><b>Your Answer</b></Form.Label>
-                <Link to="/login"><Button  sm style={{float:"right"}} variant="danger" className="hide" id="logintoanswer">Login to add an answer</Button></Link>
+                <Link to="/login"><Button  sm style={{float:"right"}} variant="danger" className="hide" id="logintoanswer">Login to answer</Button></Link>
                 <Button onClick={this.postAnswer} sm style={{float:"right"}} variant="danger" className="hide" id="submitanswerBtn">Post</Button>
                 <Form.Control active as="textarea" id="answerArea" rows={10} style={{marginTop:"10px"}} value={this.state.comment} onChange={(e) => {this.setState({comment: e.target.value})}}/>
             </Form.Group>
