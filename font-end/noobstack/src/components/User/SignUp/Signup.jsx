@@ -418,6 +418,7 @@ class Signup extends Component {
       
                   <p>or else</p>
                    <FacebookLogin
+    isMobile={false}
     appId="358895838876081"
     autoLoad={false}
     fields="name,email,picture"
