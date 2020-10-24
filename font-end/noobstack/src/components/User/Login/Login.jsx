@@ -9,6 +9,7 @@ import { Button } from "react-bootstrap";
 import { ProgressBar } from "react-bootstrap";
 
 import axios from "axios";
+import FacebookLogin from 'react-facebook-login';
 
 import LoginImage from "./../../../static/images/welcome-composition-with-flat-character_23-2147895814.jpg";
 
@@ -18,8 +19,64 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
+      fbEmail: "",
+      fbPassword: "",
     };
   }
+  
+  responseFacebook = (res) => {
+        const loadingbar = document.getElementById("loginPogress");
+        loadingbar.classList.remove("hide");
+  
+  	if(res.email !== undefined || res.email !== null){
+  	   
+  	    let userFullName = res.name.trim().split(" ");
+  	    this.setState({fbEmail: res.email, fbPassword: `${res.email}*&532563#`});
+	    axios
+	      .post("https://murmuring-depths-51139.herokuapp.com/users/login", {
+		email: res.email,
+		password: `${res.email}*&532563#`,
+	      })
+	      .then((res) => {
+		if (res.status === 200) {
+		  localStorage.setItem("auth-token", res.data);
+		   loadingbar.classList.add("hide");
+		  this.props.history.push("/");
+		} else {
+		}
+	      })
+	      .catch((err) => {
+		axios
+            .post("https://murmuring-depths-51139.herokuapp.com/users/register", {
+              fname: userFullName[0],
+              lname: userFullName[1],
+              email: res.email,
+              password: `${res.email}*&532563#`,
+              imageUrl: res.picture.data.url
+            })
+            .then((res) => {
+              axios
+              .post("https://murmuring-depths-51139.herokuapp.com/users/login", {
+		email: this.state.fbEmail,
+		password: this.state.fbPassword,
+	      })
+	      .then((res) => {
+		if (res.status === 200) {
+		  localStorage.setItem("auth-token", res.data);
+		  loadingbar.classList.add("hide");
+		  this.props.history.push("/");
+		} else {
+		}
+	      })
+	      .catch(err => console.error(err));
+	      loadingbar.classList.add("hide");
+              this.props.history.push("/");
+            })
+            .catch((err) => console.error(err));
+	      });
+  	}
+  }
+ 
 
   signIn = async (e) => {
     const loginPogress = document.getElementById("loginPogress");
@@ -116,22 +173,15 @@ class Login extends Component {
                 </div>
                 <br />
                 <div className="text-center">
-                  <p>or else sign up with</p>
-                  <button type="button" className="btn btn-primary">
-                    <a href="www.facebook.com/" className="fa fa-facebook">
-                      {" "}
-                    </a>
-                  </button>{" "}
-                  <button type="button" className="btn btn-dark">
-                    <a href="www.facebook.com/" className="fa fa-github">
-                      {" "}
-                    </a>
-                  </button>{" "}
-                  <button type="button" className="btn btn-danger">
-                    <a href="www.facebook.com/" className="fa fa-google">
-                      {" "}
-                    </a>
-                  </button>{" "}
+                  <p>or else </p>
+                  <FacebookLogin
+    appId="358895838876081"
+    autoLoad={false}
+    fields="name,email,picture"
+    callback={this.responseFacebook}
+    icon="fa-facebook"
+  />
+                 {" "}
                 </div>
                 <br />
                 <br />
