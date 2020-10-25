@@ -26,6 +26,8 @@ class ViewQs extends Component {
               comments={this.props.location.comments}
               id={this.props.location.id}
               views={this.props.location.views}
+              date={this.props.location.date}
+              auther={this.props.location.auther}
             />
           </CardDeck>
 

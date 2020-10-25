@@ -97,7 +97,7 @@ class EnrollCourseCard extends Component {
         <Card.Body>
             <Card.Title className="text-dark"><u><b>{this.props.title}</b></u></Card.Title>
             <Card.Text style={{ fontSize: '0.65em' }}
-                       className="text-muted" >Asked 4 years, 11 months ago by Shihara Dilshan</Card.Text>
+                       className="text-muted" >Asked {this.props.date} by {this.props.auther}</Card.Text>
           <Card.Text style={{ fontSize: '1em' }}
                      className="text-muted" >{this.props.description}</Card.Text>
             <small className="text-muted">

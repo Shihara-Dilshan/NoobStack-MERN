@@ -40,6 +40,8 @@ class ViewQuestion extends Component {
           title: this.props.title,
           description: this.props.description,
           imageUrl: this.props.image,
+          date: this.props.date,
+          auther: this.props.auther,
           views: Number.parseInt(this.props.views) + 1
       }
     return (
@@ -50,7 +52,7 @@ class ViewQuestion extends Component {
                                       {this.props.description}
                                   </Card.Text>
                                   <small className="text-muted">
-                                      asked by shihara dilshan at 2020.20.12 22.00AM
+                                      asked by {this.props.auther} at {this.props.date}
                                   </small>
                                   <br />
                                   <small className="text-muted">
@@ -63,13 +65,14 @@ class ViewQuestion extends Component {
                                           {this.props.views} views
                                       </Button>
                                       { " " }
-                                      <Button
+                                      <Link to={newTo}><Button onClick={this.incrementViews}
                                           id={this.props.id}
                                           variant="success"
                                           size="sm"
                                       >
                                           {this.props.comments.length} answers
                                       </Button>
+                                      </Link>
                                   </small>
 
                               </Card.Header>

@@ -107,7 +107,7 @@ class FeedDashboard extends Component {
                                 }}
                             >
                                 {this.state.courseData.map((question) => (
-                                    <ViewQuestion views={question.views} comments={question.comments} image={question.image} title={question.title} description={question.description} id={question._id}/>
+                                    <ViewQuestion auther={question.auther} date={question.date} views={question.views} comments={question.comments} image={question.image} title={question.title} description={question.description} id={question._id}/>
                                 ))}
                             </Jumbotron>
                         </Tab>
@@ -121,7 +121,7 @@ class FeedDashboard extends Component {
                                 }}
                             >
                                 {this.state.courseData.filter(question => question.category === "JavaScript").map((question) => (
-                                    <ViewQuestion comments={question.comments} title={question.title} description={question.description} id={question._id}/>
+                                    <ViewQuestion auther={question.auther} date={question.date} comments={question.comments} title={question.title} description={question.description} id={question._id}/>
                                 ))}
                             </Jumbotron>
                         </Tab>
@@ -135,7 +135,7 @@ class FeedDashboard extends Component {
                                 }}
                             >
                                 {this.state.courseData.filter(question => question.category === "HTML/CSS").map((question) => (
-                                    <ViewQuestion comments={question.comments} title={question.title} description={question.description} id={question._id}/>
+                                    <ViewQuestion auther={question.auther} date={question.date} comments={question.comments} title={question.title} description={question.description} id={question._id}/>
                                 ))}
                             </Jumbotron>
                         </Tab>
@@ -149,7 +149,7 @@ class FeedDashboard extends Component {
                                 }}
                             >
                                 {this.state.courseData.filter(question => question.category === "Java").map((question) => (
-                                    <ViewQuestion comments={question.comments} title={question.title} description={question.description} id={question._id}/>
+                                    <ViewQuestion auther={question.auther} date={question.date} comments={question.comments} title={question.title} description={question.description} id={question._id}/>
                                 ))}
                             </Jumbotron>
                         </Tab>
@@ -163,7 +163,7 @@ class FeedDashboard extends Component {
                                 }}
                             >
                                 {this.state.courseData.filter(question => question.category === "Python").map((question) => (
-                                    <ViewQuestion comments={question.comments} title={question.title} description={question.description} id={question._id}/>
+                                    <ViewQuestion auther={question.auther} date={question.date} comments={question.comments} title={question.title} description={question.description} id={question._id}/>
                                 ))}
                             </Jumbotron>
                         </Tab>
@@ -177,7 +177,7 @@ class FeedDashboard extends Component {
                                 }}
                             >
                                 {this.state.courseData.filter(question => question.category === "Android").map((question) => (
-                                    <ViewQuestion comments={question.comments} title={question.title} description={question.description} id={question._id}/>
+                                    <ViewQuestion auther={question.auther} date={question.date} comments={question.comments} title={question.title} description={question.description} id={question._id}/>
                                 ))}
                             </Jumbotron>
                         </Tab>
@@ -191,7 +191,7 @@ class FeedDashboard extends Component {
                                 }}
                             >
                                 {this.state.courseData.filter(question => question.category === "SQL").map((question) => (
-                                    <ViewQuestion comments={question.comments} title={question.title} description={question.description} id={question._id}/>
+                                    <ViewQuestion auther={question.auther} date={question.date} comments={question.comments} title={question.title} description={question.description} id={question._id}/>
                                 ))}
                             </Jumbotron>
                         </Tab>
@@ -205,7 +205,7 @@ class FeedDashboard extends Component {
                                 }}
                             >
                                 {this.state.courseData.filter(question => question.category === "Other").map((question) => (
-                                    <ViewQuestion comments={question.comments} title={question.title} description={question.description} id={question._id}/>
+                                    <ViewQuestion auther={question.auther} date={question.date} comments={question.comments} title={question.title} description={question.description} id={question._id}/>
                                 ))}
                             </Jumbotron>
                         </Tab>
