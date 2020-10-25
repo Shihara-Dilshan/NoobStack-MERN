@@ -25,6 +25,30 @@ router.post("/new", verify, async (req, res) => {
     }
 });
 
+
+//UPDATE SPEFIC POST
+router.patch("/updateviews/:questionId", async (req, res) => {
+  try {
+    const updatedQuestion = await Question.updateOne(
+      { _id: req.params.questionId },
+      { $set: { views: req.body.views } }
+    );
+    res.json(updatedQuestion);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+//GET USER'S QUESTIONS
+router.get("/viewbyuser/:userId",async (req, res) => {
+    try {
+        const userQuestions = await Question.find({ autherUniqueId: req.params.userId}).sort({_id:-1}) ;
+        res.json(userQuestions);
+    } catch (err) {
+        res.json({ message: err });
+    }
+});
+
 //GET ALL QUESTIONS
 router.get("/all",async (req, res) => {
     try {

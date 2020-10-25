@@ -61,10 +61,7 @@ class Nevbar extends Component {
                 <NavDropdown.Item>
                   <Link to="/profile">Your profile</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Enrolled courses
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Settings</NavDropdown.Item>
+                
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={this.signOut}>
                   Sign out

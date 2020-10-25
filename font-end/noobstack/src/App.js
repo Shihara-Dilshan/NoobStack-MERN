@@ -17,6 +17,7 @@ import Profile from "./components/User/Profile/Profile";
 import FeedDashboard from "./components/Feed/Posts/FeedDashboard";
 import ViewQs from "./components/Feed/Posts/ViewQs";
 import AskQuestion from "./components/Feed/Posts/AskQuestion";
+import Footer from "./components/Layout/Footer";
 
 class App extends React.Component{
   render(){
@@ -38,6 +39,7 @@ class App extends React.Component{
           <Route path="/feed" component={FeedDashboard} />
           <Route path="/ask" component={AskQuestion} />
         </Switch>
+         <Route path="/" component={Footer} />
       </div>
     </Router>
   );

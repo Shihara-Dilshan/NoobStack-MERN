@@ -25,6 +25,7 @@ class ViewQs extends Component {
               courseImage={this.props.location.imageUrl}
               comments={this.props.location.comments}
               id={this.props.location.id}
+              views={this.props.location.views}
             />
           </CardDeck>
 

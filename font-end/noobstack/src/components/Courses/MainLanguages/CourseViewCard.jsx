@@ -19,13 +19,11 @@ class CourseViewCard extends Component {
   <iframe title="content_video" class="embed-responsive-item" src={this.props.courseVideo} allowFullScreen></iframe>
 </div>
         <Card.Body>
-          <Card.Title>{this.props.courseTitle}</Card.Title>
-          <Card.Text>{this.props.courseDiscription}</Card.Text>
+          <Card.Title className="text-muted">{this.props.courseTitle}</Card.Title>
+          <Card.Text></Card.Text>
 
         </Card.Body>
-        <Card.Footer>
-          <small className="text-muted"></small>
-        </Card.Footer>
+        
       </Card>
     );
   };

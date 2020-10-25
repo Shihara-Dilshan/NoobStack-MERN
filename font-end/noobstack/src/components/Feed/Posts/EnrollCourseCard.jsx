@@ -107,7 +107,7 @@ class EnrollCourseCard extends Component {
                     size="sm"
                     onClick={this.remove}
                 >
-                    122k views
+                    {this.props.views} views
                 </Button>
                 { " " }
                 <Button

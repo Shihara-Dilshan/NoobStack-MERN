@@ -23,6 +23,7 @@ class Profile extends Component {
       isLoading: true,
       userData: [],
       courseData: [],
+      questionData: [],
       currentScreenHeight: undefined,
     };
   }
@@ -39,9 +40,19 @@ class Profile extends Component {
         .then((res) => {
           this.setState({
             userData: res.data,
-            isLoading: false,
+            
             courseData: res.data.courses,
           });
+          axios
+        .get(`https://murmuring-depths-51139.herokuapp.com/questions/viewbyuser/${userId}`)
+        .then((res) => {
+          this.setState({
+            isLoading: false,
+            questionData: res.data,
+          });
+          
+        })
+        .catch((err) => console.log(err));
         })
         .catch((err) => console.log(err));
     } catch (err) {
@@ -183,34 +194,50 @@ class Profile extends Component {
                       ))}
                     </Jumbotron>
                   </Tab>
-                  <Tab eventKey="questions" title="Questions">
+                  <Tab eventKey="questions" title="My Questions">
                     <Jumbotron
-                      style={{ backgroundColor: "#f2f2f2", padding: "0px" }}
+                      style={{
+                        backgroundColor: "#f2f2f2",
+                        padding: "5px",
+                        overflow: "auto",
+                        height: this.state.currentScreenHeight,
+                      }}
                     >
-                      <h1>Hello, world!</h1>
-                      <p>
-                        This is a simple hero unit, a simple jumbotron-style
-                        component for calling extra attention to featured
-                        content or information.
-                      </p>
-                      <p>
-                        <Button variant="primary">Learn more</Button>
-                      </p>
-                    </Jumbotron>
-                  </Tab>
-                  <Tab eventKey="settings" title="Settings" disabled>
-                    <Jumbotron
-                      style={{ backgroundColor: "#f2f2f2", padding: "0px" }}
-                    >
-                      <h1>Hello, world!</h1>
-                      <p>
-                        This is a simple hero unit, a simple jumbotron-style
-                        component for calling extra attention to featured
-                        content or information.
-                      </p>
-                      <p>
-                        <Button variant="primary">Learn more</Button>
-                      </p>
+                      {this.state.questionData.map((course) => (
+                        <Card size="lg" block style={{ marginBottom: "0px" }}>
+                              <Card.Header>
+                                  <b className="text-info">{course.title}</b>{" "}
+                                  <Card.Text style={{ fontSize: "15px" }}>
+                                      {course.description}
+                                  </Card.Text>
+                                  <small className="text-muted">
+                                      asked at {course.date}
+                                  </small>
+                                  <br />
+                                  <small className="text-muted">
+                                      <Button
+                                          id={this.props.id}
+                                          variant="outline-success"
+                                          size="sm"
+                                          onClick={this.remove}
+                                      >
+                                          {course.views} views
+                                      </Button>
+                                      { " " }
+                                      <Button
+                                          
+                                          variant="success"
+                                          size="sm"
+                                      >
+                                          {course.comments.length} answers
+                                      </Button>
+                                  </small>
+
+                              </Card.Header>
+
+
+                          </Card>
+                      ))}
                     </Jumbotron>
                   </Tab>
                 </Tabs>

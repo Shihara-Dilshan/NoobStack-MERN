@@ -107,7 +107,7 @@ class FeedDashboard extends Component {
                                 }}
                             >
                                 {this.state.courseData.map((question) => (
-                                    <ViewQuestion comments={question.comments} image={question.image} views={question.views} title={question.title} description={question.description} id={question._id}/>
+                                    <ViewQuestion views={question.views} comments={question.comments} image={question.image} title={question.title} description={question.description} id={question._id}/>
                                 ))}
                             </Jumbotron>
                         </Tab>

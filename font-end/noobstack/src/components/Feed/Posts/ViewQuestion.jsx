@@ -8,15 +8,29 @@ import { Card } from "react-bootstrap";
 import "./../../../App.css";
 
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class ViewQuestion extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true,
+      isLoading: true
     };
   }
-
+  
+  
+  incrementViews =() => {
+        let views = Number.parseInt(this.props.views) + 1;
+        let questionId = this.props.id;
+  	axios
+            .patch(`https://murmuring-depths-51139.herokuapp.com/questions/updateviews/${questionId}`,
+                {
+                        views: views
+                }
+                )
+            .then( res => console.log(res))
+            .catch(err => console.log(err))
+  }
   
   render = () => {
       const newTo = {
@@ -26,11 +40,12 @@ class ViewQuestion extends Component {
           title: this.props.title,
           description: this.props.description,
           imageUrl: this.props.image,
+          views: Number.parseInt(this.props.views) + 1
       }
     return (
                   <Card size="lg" block style={{ marginBottom: "0px" }}>
                               <Card.Header>
-                                  <Link to={newTo}><b className="text-info">{this.props.title}</b></Link>{" "}
+                                  <Link to={newTo}><b onClick={this.incrementViews} className="text-info">{this.props.title}</b></Link>{" "}
                                   <Card.Text style={{ fontSize: "15px" }}>
                                       {this.props.description}
                                   </Card.Text>
@@ -52,9 +67,8 @@ class ViewQuestion extends Component {
                                           id={this.props.id}
                                           variant="success"
                                           size="sm"
-                                          onClick={this.remove}
                                       >
-                                          3 answers
+                                          {this.props.comments.length} answers
                                       </Button>
                                   </small>
 

@@ -173,7 +173,7 @@ class Login extends Component {
                 </div>
                 <br />
                 <div className="text-center">
-                  <p>or else </p>
+                 <p>or else </p>
                   <FacebookLogin
     isMobile={false}
     appId="358895838876081"
