@@ -32,7 +32,7 @@ class Footer extends Component {
 			</div>	
 			<div className="row">
 				<div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-					<p><u><a href="https://www.nationaltransaction.com/">NoobStack </a></u> is an education platform created by Shihara Dilshan, This entire project is built with JavaScript. </p>
+					<p><u><a href="#!">NoobStack </a></u> is an education platform created by Shihara Dilshan, This entire project is built with JavaScript. </p>
 					<p className="h6">© All right Reversed.<a className="text-green ml-2" href="https://www.sunlimetech.com" >NoobStack</a></p>
 				</div>
 				<hr />
