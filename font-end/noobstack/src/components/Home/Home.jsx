@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Button } from "react-bootstrap";
 
 import LanguagesDashboard from "./../Courses/MainLanguages/LanguagesDashboard";
 import sliderImage1 from "./../../static/images/sliderimage1.png";
@@ -24,9 +24,10 @@ class Home extends Component {
               src={sliderImage4}
               alt="First slide"
             />
-            <Carousel.Caption className="d-none d-sm-block">
-              <h3>learn JavaScript</h3>
-              <p>Learning JavaScript will help you to get a better job opportunities</p>
+            <Carousel.Caption>
+           <a href="https://drive.google.com/file/d/10tXLvor17u6lno14I0GqWi36N_Hyq1FR/view?usp=sharing"> <Button variant="danger">sinhalaunix win32</Button></a>{' '}
+              <h3 className="d-none d-sm-block">learn JavaScript</h3>
+              <p className="d-none d-sm-block">Learning JavaScript will help you to get a better job opportunities</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -36,9 +37,10 @@ class Home extends Component {
               alt="Third slide"
             />
 
-            <Carousel.Caption className="d-none d-sm-block">
-              <h3>Ask any question</h3>
-              <p>Post any question based on HTML, CSS or any other topic you want.</p>
+            <Carousel.Caption>
+             <a href="https://drive.google.com/file/d/1XCyAycLrtM-CUMfycyj_xGi7r8vfW1Qj/view?usp=sharing"><Button variant="dark">sinhalaunix linux app image</Button></a>{' '}
+              <h3 className="d-none d-sm-block">Ask any question</h3>
+              <p className="d-none d-sm-block">Post any question based on HTML, CSS or any other topic you want.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -49,6 +51,7 @@ class Home extends Component {
             />
 
             <Carousel.Caption className="d-none d-sm-block">
+            <a href="https://drive.google.com/file/d/1bDijZIYwlQXBY8fSARNShF_gLnPqwwNZ/view?usp=sharing"><Button variant="light">sinhalaunix linux deb</Button></a>{' '}
               <h3>JavaScript on the Server-Side</h3>
               <p>
                 Learn Node, a run time library for JavaScript to run on the server side.
