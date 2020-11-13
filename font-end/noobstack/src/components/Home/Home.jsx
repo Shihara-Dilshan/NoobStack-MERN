@@ -50,10 +50,10 @@ class Home extends Component {
               alt="Third slide"
             />
 
-            <Carousel.Caption className="d-none d-sm-block">
+            <Carousel.Caption>
             <a href="https://drive.google.com/file/d/1bDijZIYwlQXBY8fSARNShF_gLnPqwwNZ/view?usp=sharing"><Button variant="light">sinhalaunix linux deb</Button></a>{' '}
-              <h3>JavaScript on the Server-Side</h3>
-              <p>
+              <h3 className="d-none d-sm-block">JavaScript on the Server-Side</h3>
+              <p className="d-none d-sm-block">
                 Learn Node, a run time library for JavaScript to run on the server side.
               </p>
             </Carousel.Caption>
