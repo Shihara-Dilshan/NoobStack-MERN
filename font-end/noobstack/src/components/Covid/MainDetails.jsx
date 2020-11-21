@@ -55,8 +55,10 @@ class MainDetails extends Component{
 	   	       recovered += Number.parseInt(data.totalRecovered);
 	   	       deaths += Number.parseInt(data.totalDeaths);
 	   	       critical += Number.parseInt(data.totalCritical);
+	   	       if(data.totalConfirmed > 500000){
 	   	       countries.push(data.country);
 	   	       cases.push(data.totalConfirmed);
+	   	       }
 	   	   })
 	   	   this.setState({CTotalCases: Total, CActiveCases: Active, CTotalRecovered: recovered, CTotalDeaths: deaths, CTotalCritical: critical});
 	   	   var ctx = document.getElementById('myChart');
