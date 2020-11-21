@@ -24,6 +24,7 @@ class MainDetails extends Component{
 	
 	componentDidMount(){
 	   var ctx = document.getElementById('myChart');
+	   // eslint-disable-next-line
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
