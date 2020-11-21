@@ -100,7 +100,14 @@ var myChart = new Chart(ctx, {
 	   	})
 	   	.catch(err => console.log(err));
 	   	
-	   	this.setState({ isLoading : false, countrylist: res.data});
+	   	this.setState({ isLoading : false, countrylist: res.data.sort( (a,b) => {
+	   		if(a.country < b.country){
+	   			return -1;
+	   		}else{
+	   			return 1;
+	   		}
+	   	
+	   	})  });
 	   		
 	   		
 	   	})
