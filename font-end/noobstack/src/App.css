@@ -74,6 +74,10 @@ a {
    text-decoration: none !important;
 }
 
+#covid19data{
+   width: 100% !important
+}
+
 
 
 .test {

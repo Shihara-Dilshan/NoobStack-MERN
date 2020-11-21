@@ -52,7 +52,9 @@ class Nevbar extends Component {
              <Nav.Link>
                 <Link to="/feed">Feed</Link>
               </Nav.Link>
-             
+             <Nav.Link>
+                <Link to="/covid19">Covid-19</Link>
+              </Nav.Link>
               <NavDropdown
                 title="Account"
                 id="basic-nav-dropdown"
@@ -80,7 +82,9 @@ class Nevbar extends Component {
               <Nav.Link>
                 <Link to="/feed">Feed</Link>
               </Nav.Link>
-              
+              <Nav.Link>
+                <Link to="/covid19">Covid-19</Link>
+              </Nav.Link>
               <Nav.Link>
                 <Link to="/login">Login</Link>
               </Nav.Link>
