@@ -1,6 +1,5 @@
-## NoobStack 
+## NoobStack ![visitors](https://visitor-badge.glitch.me/badge?page_id=noobstack.visitor-badge)<br />
 Educational platform built with MERN Stack.
-![visitors](https://visitor-badge.glitch.me/badge?page_id=noobstack.visitor-badge)
 
 ## Install
 
@@ -48,4 +47,4 @@ $ npm build
 
 ## License
 
-MIT © sinhalaunix 2020
+MIT © NoobStack 2020
