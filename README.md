@@ -1,48 +1,46 @@
-## සිංහල-English Dictionary
-![visitors](https://visitor-badge.glitch.me/badge?page_id=sinhalaunix.visitor-badge)
-
-<div align="center">
-
-![Electron Boilerplate Demo](https://raw.githubusercontent.com/Shihara-Dilshan/img/master/about.gif)
-
-</div>
+## NoobStack 
+Educational platform built with MERN Stack.
+![visitors](https://visitor-badge.glitch.me/badge?page_id=noobstack.visitor-badge)
 
 ## Install
-
-- **If you have installation or compilation issues with this project, please see [our debugging guide](https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues/400)**
 
 First, clone the repo via git:
 
 ```bash
-git clone --depth 1 --single-branch --branch master https://github.com/electron-react-boilerplate/electron-react-boilerplate.git your-project-name
+git clone https://github.com/Shihara-Dilshan/NoobStack-MERN.git
 ```
+Project contains two different folders.
+1.Font-end(contains React files realated to Font-End)
+2.Back-end(contains Node/Express files realated to Back-End)
 
-And then install the dependencies with yarn.
+And then install the dependencies with NPM.
 
 ```bash
-$ cd your-project-name
-$ yarn
+$ cd font-end
+$ npm install
+
+$ cd back-end
+$ npm install
 ```
 
-## Starting Development
-
-Start the app in the `dev` environment. This starts the renderer process in [**hot-module-replacement**](https://webpack.js.org/guides/hmr-react/) mode and starts a webpack dev server that sends hot updates to the renderer process:
+## Starting Development Servers
 
 ```bash
-$ yarn dev
+$ cd font-end
+$ npm start
+
+$ cd back-end
+$ npm start
 ```
+This will start React server on port 3000 and Express server on port 5000
 
 ## Packaging for Production
 
 To package apps for the local platform:
 
 ```bash
-$ yarn package
+$ npm build
 ```
-
-## Docs
-
-See our [docs and guides here](https://electron-react-boilerplate.js.org/docs/installation)
 
 ## Maintainers
 
