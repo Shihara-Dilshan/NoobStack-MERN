@@ -47,4 +47,4 @@ $ npm build
 
 ## License
 
-MIT © NoobStack 2020
+MIT © NoobStack 2020.
